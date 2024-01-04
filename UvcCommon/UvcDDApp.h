@@ -10,6 +10,8 @@
 #include <cassert>
 #include <wrl.h>
 #include <queue>
+
+#include "IsaUtils.h"
 #include "UvcTimer.h"
 #include "UvcImage.h"
 
@@ -18,93 +20,97 @@
 
 #define ReleaseCOM(x) { if(x){ x->Release(); x = nullptr; } }
 
-class UvcDDApp
-{
-	// constructor and destructor
-protected:
-	UvcDDApp(HINSTANCE hInstance);
-	UvcDDApp(const UvcDDApp& res) = delete;
-	UvcDDApp& operator=(const UvcDDApp& res) = delete;
-	virtual ~UvcDDApp();
+namespace IsaD9Frame {
 
-public:
-	// get pointer 2 this App class
-	static UvcDDApp* GetApp();
-	// get this app's instance
-	HINSTANCE			AppInst();
-	HWND				MainWnd();
-	float				AspectRatio();
 
-	int Run();
+	class UvcDDApp
+	{
+		// constructor and destructor
+	protected:
+		UvcDDApp(HINSTANCE hInstance);
+		UvcDDApp(const UvcDDApp& res) = delete;
+		UvcDDApp& operator=(const UvcDDApp& res) = delete;
+		virtual ~UvcDDApp();
 
-	virtual bool	Initialize();
-	virtual LRESULT MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	public:
+		// get pointer 2 this App class
+		static UvcDDApp* GetApp();
+		// get this app's instance
+		HINSTANCE			AppInst();
+		HWND				MainWnd();
+		float				AspectRatio();
 
-protected:
-	virtual void OnResize();
-	virtual void Update(const UvcTimer& Timer);
-	virtual void Draw(const UvcTimer& Timer) = 0;
-	//virtual void DrawWithDX() = 0;
+		int Run();
 
-	// to be override for handling mouse input.
-	virtual void OnMouseDown(WPARAM btnState, int x, int y) { return; };
-	virtual void OnMouseUp(WPARAM btnState, int x, int y) { return; };
-	virtual void OnMouseMove(WPARAM btnState, int x, int y) { return; };
+		virtual bool	Initialize();
+		virtual LRESULT MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-	// Attach a Clipper to the BackBufferSurface, using mClipperRECTQue
-	virtual LPDIRECTDRAWCLIPPER DDrawAttachClipper();
+	protected:
+		virtual void OnResize();
+		virtual void Update(const UvcTimer& Timer);
+		virtual void Draw(const UvcTimer& Timer) = 0;
+		//virtual void DrawWithDX() = 0;
 
-protected:
-	bool InitMainWindow();
-	bool InitDDraw();
+		// to be override for handling mouse input.
+		virtual void OnMouseDown(WPARAM btnState, int x, int y) { return; };
+		virtual void OnMouseUp(WPARAM btnState, int x, int y) { return; };
+		virtual void OnMouseMove(WPARAM btnState, int x, int y) { return; };
 
-	bool CreatCommandObjects();
-	bool CreatSwapChain();
+		// Attach a Clipper to the BackBufferSurface, using mClipperRECTQue
+		virtual LPDIRECTDRAWCLIPPER DDrawAttachClipper();
 
-	void FlushCommandQueue();
-	void PlotPixel(DDSURFACEDESC2& ddsd, int x, int y, int r, int g = -1, int b = -1, int a = 0);
+	protected:
+		bool InitMainWindow();
+		bool InitDDraw();
 
-	// WARNING - Must Run in Draw func!!!!
-	int DrawImageToDDSurface(UvcImage ubmp, DDSURFACEDESC2 ddsd, RECT SrcRect, int x, int y);
-	RGBInfo GetPixelRGB(int x, int y) const;
+		bool CreatCommandObjects();
+		bool CreatSwapChain();
 
-	DDSURFACEDESC2 GetDDSD() { return mDDSD; };
-public:
-	LPDIRECTDRAW7 mlpDD7;
+		void FlushCommandQueue();
+		void PlotPixel(DDSURFACEDESC2& ddsd, int x, int y, int r, int g = -1, int b = -1, int a = 0);
 
-protected:
+		// WARNING - Must Run in Draw func!!!!
+		int DrawImageToDDSurface(UvcImage& ubmp, DDSURFACEDESC2 ddsd, RECT SrcRect, int x, int y);
+		RGBInfo GetPixelRGB(int x, int y) const;
 
-	static UvcDDApp* mApp;
+		DDSURFACEDESC2 GetDDSD() { return mDDSD; };
+	public:
+		LPDIRECTDRAW7 mlpDD7;
 
-	HINSTANCE	mhAppInst;
-	HWND		mhMainWnd;
+	protected:
 
-	bool		mAppPaused;
-	bool		mMinimized;
-	bool		mMaximized;
-	bool		mResizeing;
-	bool		mFullScreenState;
+		static UvcDDApp* mApp;
 
-	UvcTimer mTimer;
+		HINSTANCE	mhAppInst;
+		HWND		mhMainWnd;
 
-	LPDIRECTDRAWSURFACE7	mlpDDSurefacePrimary;
-	LPDIRECTDRAWSURFACE7	mlpDDSurefaceBackBuffer;
-	LPDIRECTDRAWCLIPPER		mlpDDClipper;
+		bool		mAppPaused;
+		bool		mMinimized;
+		bool		mMaximized;
+		bool		mResizeing;
+		bool		mFullScreenState;
 
-	DDSURFACEDESC2	mDDSD;
-	DDPIXELFORMAT	mDDPF;
+		UvcTimer mTimer;
 
-	RECT	mClientRect;
+		LPDIRECTDRAWSURFACE7	mlpDDSurefacePrimary;
+		LPDIRECTDRAWSURFACE7	mlpDDSurefaceBackBuffer;
+		LPDIRECTDRAWCLIPPER		mlpDDClipper;
 
-	static const int SwapChainBufferCount = 2;
-	int mCurBackBuffer;
+		DDSURFACEDESC2	mDDSD;
+		DDPIXELFORMAT	mDDPF;
 
-	std::string mMainWndCaption;
-	int mClientWidth;
-	int mClientHeight;
-	int mClientBPP;
-	// always save depth of Surface to make sure u r using the right fn. to paint.
-	int mSurfaceBPP;
+		RECT	mClientRect;
 
-	std::queue<RECT> mClipperRECTQue;
-};
+		static const int SwapChainBufferCount = 2;
+		int mCurBackBuffer;
+
+		std::wstring mMainWndCaption;
+		int mClientWidth;
+		int mClientHeight;
+		int mClientBPP;
+		// always save depth of Surface to make sure u r using the right fn. to paint.
+		int mSurfaceBPP;
+
+		std::queue<RECT> mClipperRECTQue;
+	};
+}

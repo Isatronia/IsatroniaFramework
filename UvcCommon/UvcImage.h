@@ -10,64 +10,122 @@
 
 #include <ddraw.h>
 
-class UvcImage
-{
-private:
-	// Image Size.
-	POINT mImageDimension;
-	// The memory where Image stored.
-	UCHAR* mBuffer;
-	// total size of image, save for later.
-	int mBitCnt;
+#include "IsaUtils.h"
 
-public:
-	// This constructor will give u a empty Image.
-	UvcImage();
-	UvcImage(const char* fileName);
-	~UvcImage();
+namespace IsaD9Frame {
 
-	// load image from file.
-	virtual int loadImage(const char* fileName) = 0;
-	virtual int unloadImage() = 0;
+	class UvcImage
+	{
+	private:
+		// Image Size.
+		POINT mImageDimension;
+		// The memory where Image stored.
+		UCHAR* mBuffer;
+		// total size of image, save for later.
+		int mBitCnt;
+		// col dip
+		int mColorDepth;
 
-	virtual RECT getRect();
-	virtual RECT getDestRect(long x, long y);
+	public:
+		// This constructor will give u a empty Image.
+		UvcImage();
+		~UvcImage();
 
-public:
-	// getters and setters.
-	POINT getImageDimension();
-	void setImageDimension(POINT dim);
+		// load image from file.
+		virtual int loadImage(const char* fileName) = 0;
+		virtual void unloadImage() = 0;
 
-	UCHAR* getImage();
-	
-	int getImageSize();
 
-	// setters for subclasses.
-protected:
-	void setImage(UCHAR* img);
-	void setImageSize(int size);
+		virtual RGBInfo getPixelRGB(int x, int y) = 0;
 
-};
+	public:
+		// getters and setters.
+		POINT getImageDimension();
+		void setImageDimension(POINT dim);
 
-POINT UvcImage::getImageDimension() {
-	return this->mImageDimension;
-}
+		UCHAR* getImage();
 
-void UvcImage::setImageDimension(POINT dim) {
-	this->mImageDimension = dim;
-	return;
-}
+		int getImageSize();
 
-UCHAR* UvcImage::getImage() {
-	return this->mBuffer;
-}
+		int getColorDepth();
 
-void UvcImage::setImage(UCHAR* img) {
-	this->mBuffer = img;
-	return;
-}
+		// setters for subclasses.
+	protected:
+		void setImage(UCHAR* img);
+		void setImageSize(int size);
+		void setColorDepth(int colorDepth);
 
-void UvcImage::setImageSize(int size) {
-	this->mBitCnt = size;
-	return;
+	};
+
+	// ---------------------------------------------------
+	// Methods
+	// ---------------------------------------------------
+	void UvcImage::unloadImage() {
+		if (getImage())
+		{
+			delete getImage();
+		}
+		setImage(nullptr);
+		setColorDepth(0);
+		setImageDimension(POINT{ 0, 0 });
+		setImageSize(0);
+	}
+
+	// ---------------------------------------------------
+	// Constructors
+	// ---------------------------------------------------
+	UvcImage::UvcImage() {
+		setImageDimension(POINT{ 0 ,0 });
+		setColorDepth(0);
+		setImage(nullptr);
+		setImageSize(0);
+		return;
+	}
+
+	UvcImage::~UvcImage() {
+		if (mBuffer) {
+			delete mBuffer;
+		}
+		return;
+	}
+
+	// ---------------------------------------------------
+	// Getters And Setters
+	// ---------------------------------------------------
+
+	POINT UvcImage::getImageDimension() {
+		return mImageDimension;
+	}
+
+	void UvcImage::setImageDimension(POINT dim) {
+		mImageDimension = dim;
+		return;
+	}
+
+	UCHAR* UvcImage::getImage() {
+		return mBuffer;
+	}
+
+	void UvcImage::setImage(UCHAR* img) {
+		mBuffer = img;
+		return;
+	}
+
+	int UvcImage::getImageSize() {
+		return mBitCnt;
+	}
+
+	void UvcImage::setImageSize(int size) {
+		mBitCnt = size;
+		return;
+	}
+
+	int UvcImage::getColorDepth() {
+		return mColorDepth;
+	}
+
+	void UvcImage::setColorDepth(int colorDepth) {
+		mColorDepth = colorDepth;
+		return;
+	}
 }

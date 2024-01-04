@@ -1,162 +1,162 @@
 #include "UvcImage.h"
 
-#define __POSTERR(str) {MessageBox(0, str, L"Error", NULL);}
-#define __RGB32BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) + ((a) << 24))
+#define __POSTERR(str) {MessageBoxA(0, str, L"Error", NULL);}
+
 
 template<typename T>
 void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 
-UvcImage::UvcImage()
-{
-	mBitMapFileHeader = { 0 };
-	mBitMapInfoHeader = { 0 };
-	memset(&mPalette, 0, sizeof(mPalette));
-	mBuffer = nullptr;
-	mBitCnt = 0;
-}
-
-UvcImage::UvcImage(const char* fileName)
-{
-	UvcImage::loadImage(fileName);
-}
-
-UvcImage::~UvcImage()
-{
-}
-
-int UvcImage::loadImage(const char* fileName)
-{
-	// TODO: 在此处添加实现代码.
-
-	int fileHandle,	// the file handle
-		index;			// looping index
-
-	UCHAR* tempBuffer = nullptr;	// used to convert 24bit image to 16bit
-	OFSTRUCT fileData;
-	memset(&fileData, 0, sizeof(fileData));
-
-	if (-1 == (fileHandle = OpenFile(fileName, &fileData, OF_READ)))
-	{
-		return 0;
-	}
-
-	// load the bitmap file header
-	_lread(fileHandle, &mBitMapFileHeader, sizeof(BITMAPFILEHEADER));
-
-	// test if is a Bitmap
-	if (mBitMapFileHeader.bfType != 0x4D42)
-	{
-		_lclose(fileHandle);
-		return 0;
-	}// end if
-
-	// now load the bitmap file header
-	_lread(fileHandle, &mBitMapInfoHeader, sizeof(BITMAPINFOHEADER));
-
-	// what we need done for 8-bit bitmap
-	if (mBitMapInfoHeader.biBitCount == 8)
-	{
-		_lread(fileHandle, &mPalette,
-			256 * sizeof(PALETTEENTRY));
-
-		for (index = 0; index < 256; index++)
-		{
-			// reverse the red and greed fields, maybe.
-			Swap(mPalette[index].peBlue, mPalette->peRed);
-
-			// aleays set the flags word to this
-			mPalette->peFlags = PC_NOCOLLAPSE;
-		}
-	}// end if
-
-	// in case of 16 bits
-	_llseek(fileHandle, -(int)(mBitMapFileHeader.bfSize), SEEK_END);
-
-	// now read in the Image
-	if (mBitMapInfoHeader.biBitCount == 8 ||
-		mBitMapInfoHeader.biBitCount == 16 ||
-		mBitMapInfoHeader.biBitCount == 24)
-	{
-		// if have another bitmap before, del it.
-		if (mBuffer != nullptr)
-		{
-			free(mBuffer);
-		}
-
-		if (!(mBuffer = (UCHAR*)malloc(mBitMapInfoHeader.biSizeImage)))
-		{
-			_lclose(fileHandle);
-			return 0;
-		}
-
-		// now read.
-		_lread(fileHandle, mBuffer,
-			mBitMapInfoHeader.biSizeImage);
-	}// end if
-	else
-	{
-		return 0;
-	}
-
-	_lclose(fileHandle);
-
-	Flip();
-
-	return 1;
-}
-
-int UvcImage::unloadImage()
-{
-	if (mBuffer != nullptr)
-	{
-		free(mBuffer);
-		mBuffer = nullptr;
-	}
-	return 1;
-}
-
-bool UvcImage::Flip()
-{
-	// TODO: 在此处添加实现代码.
-	UCHAR* buffer = (UCHAR*)malloc(sizeof(mBuffer));
-
-	if (mBitMapInfoHeader.biHeight < 0) return true; // the BM do not need flip.
-	if (mBitMapInfoHeader.biBitCount < 8) return false;	// not deal with 1&4bit bitmap.
-
-	mBitCnt = mBitMapInfoHeader.biBitCount / 8;
-	// Flip the bitmap
-	for (int y = 0; y < mBitMapInfoHeader.biHeight; y++)
-	{
-		memcpy(buffer + y * mBitMapInfoHeader.biHeight,
-			mBuffer + (mBitMapInfoHeader.biHeight - y) * mBitMapInfoHeader.biHeight,
-			mBitMapInfoHeader.biWidth);
-	}
-
-	free(mBuffer);
-	mBuffer = buffer;
-	buffer = nullptr;
-	return true;
-}
-
-RECT UvcImage::getRect()
-{
-	RECT r = { 0 };
-	r.top = 0;
-	r.left = 0;
-	r.right = mBitMapInfoHeader.biWidth;
-	r.bottom = mBitMapInfoHeader.biHeight;
-	return r;
-}
-
-RECT UvcImage::GetDestRect(long x, long y)
-{
-	RECT r = { 0 };
-	r.top = y;
-	r.left = x;
-	r.right = x + mBitMapInfoHeader.biWidth;
-	r.bottom = y + mBitMapInfoHeader.biHeight;
-	return r;
-}
+//UvcImage::UvcImage()
+//{
+//	mBitMapFileHeader = { 0 };
+//	mBitMapInfoHeader = { 0 };
+//	memset(&mPalette, 0, sizeof(mPalette));
+//	mBuffer = nullptr;
+//	mBitCnt = 0;
+//}
+//
+//UvcImage::UvcImage(const char* fileName)
+//{
+//	UvcImage::loadImage(fileName);
+//}
+//
+//UvcImage::~UvcImage()
+//{
+//}
+//
+//int UvcImage::loadImage(const char* fileName)
+//{
+//	// TODO: 在此处添加实现代码.
+//
+//	int fileHandle,	// the file handle
+//		index;			// looping index
+//
+//	UCHAR* tempBuffer = nullptr;	// used to convert 24bit image to 16bit
+//	OFSTRUCT fileData;
+//	memset(&fileData, 0, sizeof(fileData));
+//
+//	if (-1 == (fileHandle = OpenFile(fileName, &fileData, OF_READ)))
+//	{
+//		return 0;
+//	}
+//
+//	// load the bitmap file header
+//	_lread(fileHandle, &mBitMapFileHeader, sizeof(BITMAPFILEHEADER));
+//
+//	// test if is a Bitmap
+//	if (mBitMapFileHeader.bfType != 0x4D42)
+//	{
+//		_lclose(fileHandle);
+//		return 0;
+//	}// end if
+//
+//	// now load the bitmap file header
+//	_lread(fileHandle, &mBitMapInfoHeader, sizeof(BITMAPINFOHEADER));
+//
+//	// what we need done for 8-bit bitmap
+//	if (mBitMapInfoHeader.biBitCount == 8)
+//	{
+//		_lread(fileHandle, &mPalette,
+//			256 * sizeof(PALETTEENTRY));
+//
+//		for (index = 0; index < 256; index++)
+//		{
+//			// reverse the red and greed fields, maybe.
+//			Swap(mPalette[index].peBlue, mPalette->peRed);
+//
+//			// aleays set the flags word to this
+//			mPalette->peFlags = PC_NOCOLLAPSE;
+//		}
+//	}// end if
+//
+//	// in case of 16 bits
+//	_llseek(fileHandle, -(int)(mBitMapFileHeader.bfSize), SEEK_END);
+//
+//	// now read in the Image
+//	if (mBitMapInfoHeader.biBitCount == 8 ||
+//		mBitMapInfoHeader.biBitCount == 16 ||
+//		mBitMapInfoHeader.biBitCount == 24)
+//	{
+//		// if have another bitmap before, del it.
+//		if (mBuffer != nullptr)
+//		{
+//			free(mBuffer);
+//		}
+//
+//		if (!(mBuffer = (UCHAR*)malloc(mBitMapInfoHeader.biSizeImage)))
+//		{
+//			_lclose(fileHandle);
+//			return 0;
+//		}
+//
+//		// now read.
+//		_lread(fileHandle, mBuffer,
+//			mBitMapInfoHeader.biSizeImage);
+//	}// end if
+//	else
+//	{
+//		return 0;
+//	}
+//
+//	_lclose(fileHandle);
+//
+//	Flip();
+//
+//	return 1;
+//}
+//
+//int UvcImage::unloadImage()
+//{
+//	if (mBuffer != nullptr)
+//	{
+//		free(mBuffer);
+//		mBuffer = nullptr;
+//	}
+//	return 1;
+//}
+//
+//bool UvcImage::Flip()
+//{
+//	// TODO: 在此处添加实现代码.
+//	UCHAR* buffer = (UCHAR*)malloc(sizeof(mBuffer));
+//
+//	if (mBitMapInfoHeader.biHeight < 0) return true; // the BM do not need flip.
+//	if (mBitMapInfoHeader.biBitCount < 8) return false;	// not deal with 1&4bit bitmap.
+//
+//	mBitCnt = mBitMapInfoHeader.biBitCount / 8;
+//	// Flip the bitmap
+//	for (int y = 0; y < mBitMapInfoHeader.biHeight; y++)
+//	{
+//		memcpy(buffer + y * mBitMapInfoHeader.biHeight,
+//			mBuffer + (mBitMapInfoHeader.biHeight - y) * mBitMapInfoHeader.biHeight,
+//			mBitMapInfoHeader.biWidth);
+//	}
+//
+//	free(mBuffer);
+//	mBuffer = buffer;
+//	buffer = nullptr;
+//	return true;
+//}
+//
+//RECT UvcImage::getRect()
+//{
+//	RECT r = { 0 };
+//	r.top = 0;
+//	r.left = 0;
+//	r.right = mBitMapInfoHeader.biWidth;
+//	r.bottom = mBitMapInfoHeader.biHeight;
+//	return r;
+//}
+//
+//RECT UvcImage::GetDestRect(long x, long y)
+//{
+//	RECT r = { 0 };
+//	r.top = y;
+//	r.left = x;
+//	r.right = x + mBitMapInfoHeader.biWidth;
+//	r.bottom = y + mBitMapInfoHeader.biHeight;
+//	return r;
+//}
 
 /*
 LPDIRECTDRAWSURFACE7 UvcImage::GetDDSurface()

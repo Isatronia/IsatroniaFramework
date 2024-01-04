@@ -8,6 +8,7 @@
 #include <map>
 
 #include "UvcCommon/UvcDDrawClass.h"
+#include "./UvcCommon/IsaUtils.h"
 
 using std::string;
 using std::deque;
@@ -15,7 +16,7 @@ using std::vector;
 using std::map;
 using std::pair;
 
-#define __RGB32BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) + ((a) << 24))
+
 
 #define __POSTERR(str) {MessageBox(0, str, "Error", NULL);}
 #define UvcDXInit_s(res, str) { if (FAILED(res)) {__POSTERR(str);return false; } }
@@ -29,6 +30,18 @@ using std::pair;
 #define __GAME_STATE_STGINIT__	5
 
 #include "UvcCommon/UvcDDApp.h"
+
+
+using namespace IsaD9Frame;
+
+enum gGameState {
+	menu,
+	run,
+	win,
+	die,
+	end,
+	stginit
+};
 
 class TestApp :public UvcDDApp
 {

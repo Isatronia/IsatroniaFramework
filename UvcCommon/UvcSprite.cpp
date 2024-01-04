@@ -1,8 +1,9 @@
 #include "UvcSprite.h"
-namespace IsaFrame {
+#include "IsaBitMap.h"
+namespace IsaD9Frame {
 	Sprite::Sprite()
 	{
-		memset(&detectRect, 0, sizeof(RECT));
+		memset(&mHitBox, 0, sizeof(RECT));
 
 		mCharax = 0;
 		mCharay = 0;
@@ -38,10 +39,10 @@ namespace IsaFrame {
 		return;
 	}
 
-	UvcImage Sprite::getBMP()
+	UvcImage* Sprite::getCurrentImage()
 	{
 		// TODO: 在此处插入 return 语句
-		if (mfaceRight)
+		/*if (mfaceRight)
 		{
 			if (mAnimIndex)
 				return rAnim[Animlist[mAnimIndex % 6]];
@@ -55,7 +56,8 @@ namespace IsaFrame {
 			else
 				return lAnim[0];
 		}
-		return UvcImage();
+		return UvcImage();*/
+		return new IsaBitMap();
 	}
 
 	inline void Sprite::Jump()
@@ -118,23 +120,6 @@ namespace IsaFrame {
 		return;
 	}
 
-	void Sprite::SetDetectRECT(UINT Width, UINT Height)
-	{
-		if (uBmp.mBitMapInfoHeader.biHeight <= Height)	Height = uBmp.mBitMapInfoHeader.biHeight;
-		if (uBmp.mBitMapInfoHeader.biWidth <= Width)	Width = uBmp.mBitMapInfoHeader.biWidth;
-		if (Width == 65535 && Height == 65535)
-		{
-			detectRect = uBmp.getRect();
-			return;
-		}
-		detectRect.left = (uBmp.mBitMapInfoHeader.biWidth - Width) / 2;
-		detectRect.right = (uBmp.mBitMapInfoHeader.biWidth + Width) / 2;
-
-		detectRect.top = (uBmp.mBitMapInfoHeader.biHeight - Height) / 2;
-		detectRect.bottom = (uBmp.mBitMapInfoHeader.biHeight + Height) / 2;
-		return;
-	}
-
 	void Sprite::Count()
 	{
 		if (mCharavx)
@@ -154,7 +139,7 @@ namespace IsaFrame {
 	{
 		if (Dmg >= mHp)
 		{
-			mdie = __DIE_STATE_DIE__;
+			mdie = spriteState::die;
 			return;
 		}
 		else
@@ -167,8 +152,8 @@ namespace IsaFrame {
 	{
 		POINT pos;
 		// x坐标中心点计算为角色x坐标加碰撞箱中点，y类似
-		pos.x = ((detectRect.left + detectRect.right) >> 1) + mCharax;
-		pos.y = ((detectRect.top + detectRect.bottom) >> 1) + mCharay;
+		pos.x = ((mHitBox.left + mHitBox.right) >> 1) + mCharax;
+		pos.y = ((mHitBox.top + mHitBox.bottom) >> 1) + mCharay;
 		return pos;
 	}
 
@@ -208,25 +193,25 @@ namespace IsaFrame {
 		return;
 	}
 
-	void Sprite::PlotPixel(UvcImage UImg, int x, int y, int r, int g, int b, int a)
+	void Sprite::PlotPixel(UvcImage& UImg, int x, int y, int r, int g, int b, int a)
 	{
 		UINT	pixelFor32Bit = 0;
-		UINT* bufferFor32bit = (UINT*)UImg.mBuffer;
+		UINT*	bufferFor32bit = (UINT*)UImg.getImage();
 
-		switch (UImg.mBitCnt)
+		switch (UImg.getImageSize())
 		{
 			// __RGB 24BIT mode
 		case 24:
 		{
 			pixelFor32Bit = __RGB32BIT(0, r, g, b);
-			bufferFor32bit[x + (y * (int)(UImg.mBitMapInfoHeader.biWidth))] = pixelFor32Bit;
+			bufferFor32bit[x + (y * (int)(UImg.getImageRect().right))] = pixelFor32Bit;
 		}
 		break;
 		// __RGB32BIT mode
 		case 32:
 		{
 			pixelFor32Bit = __RGB32BIT(a, r, g, b);
-			bufferFor32bit[x + (y * (int)(UImg.mBitMapInfoHeader.biWidth))] = pixelFor32Bit;
+			bufferFor32bit[x + (y * (int)(UImg.getImageRect().right))] = pixelFor32Bit;
 		}
 		break;
 		default:
@@ -236,32 +221,59 @@ namespace IsaFrame {
 		return;
 	}
 
-	void Sprite::SetClientSize(int Width, int Height)
-	{
-		mClientWidth = Width;
-		mClientHeight = Height;
+	//void Sprite::SetClientSize(int Width, int Height)
+	//{
+	//	mClientWidth = Width;
+	//	mClientHeight = Height;
+	//	return;
+	//}
+
+	// ----------------------------------------------------
+	// Getters and Setters.
+	// ----------------------------------------------------
+
+	int Sprite::getX() {
+		return mCharax;
+	}
+
+	void Sprite::setX(LONG x) {
+		this->mCharax = x;
 		return;
 	}
 
-	CEnimy::CEnimy() :Object()
+	void Sprite::setY(LONG y) {
+		this->mCharay = y;
+		return;
+	}
+
+	int Sprite::getY() {
+		return mCharay;
+	}
+
+	POINT Sprite::getPoint() {
+		return POINT{ getX(), getY() };
+	}
+
+	void Sprite::setHitBox(RECT hitBox)
 	{
-		mName = "";
-		mHP = 0;
-		mATK = 0;
+		this->mHitBox = hitBox;
+		return;
+		/*try {
 
-		MaxAnimIndex = 0;
-		mAnimIndex = 0;
-		LImg = nullptr;
-		RImg = nullptr;
-		mAnimList.clear();
-		mFaceRight = false;
-		mDeath = false;
+		}catch(...){
+		}
+		if (uBmp.mBitMapInfoHeader.biHeight <= Height)	Height = uBmp.mBitMapInfoHeader.biHeight;
+		if (uBmp.mBitMapInfoHeader.biWidth <= Width)	Width = uBmp.mBitMapInfoHeader.biWidth;
+		if (Width == 65535 && Height == 65535)
+		{
+			detectRect = uBmp.getRect();
+			return;
+		}
+		detectRect.left = (uBmp.mBitMapInfoHeader.biWidth - Width) / 2;
+		detectRect.right = (uBmp.mBitMapInfoHeader.biWidth + Width) / 2;
 
-		vx = 0;
-		vy = 0;
-		x = 0;
-		y = 0;
-
-		mActive = false;
+		detectRect.top = (uBmp.mBitMapInfoHeader.biHeight - Height) / 2;
+		detectRect.bottom = (uBmp.mBitMapInfoHeader.biHeight + Height) / 2;
+		return;*/
 	}
 };

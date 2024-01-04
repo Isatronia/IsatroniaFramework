@@ -6,26 +6,34 @@
 
 #include <ddraw.h>
 #include "UvcImage.h"
-class IsaBitMap : UvcImage
-{
-public:
-	IsaBitMap();
-	IsaBitMap(const char* fileName);
-	~IsaBitMap();
 
-	int loadImage(const char* fileName);
-	int unloadImage();
+namespace IsaD9Frame {
 
-	bool Flip();
 
-	RECT GetRect();
-	RECT GetDestRect(long x, long y);
+	class IsaBitMap : public UvcImage
+	{
+	public:
+		IsaBitMap();
+		IsaBitMap(const char* fileName);
+		~IsaBitMap();
 
-public:
+		int loadImage(const char* fileName);
+		int unloadImage();
 
-	BITMAPFILEHEADER mBitMapFileHeader;
+		bool Flip();
 
-	BITMAPINFOHEADER mBitMapInfoHeader;
+		RECT getImageRect();
+		RECT GetDestRect(long x, long y);
 
-	PALETTEENTRY mPalette[256];
-};
+		RGBInfo getPixelRGB(int x, int y)override;
+
+	public:
+
+		BITMAPFILEHEADER mBitMapFileHeader;
+
+		BITMAPINFOHEADER mBitMapInfoHeader;
+
+		PALETTEENTRY mPalette[256];
+	};
+
+}

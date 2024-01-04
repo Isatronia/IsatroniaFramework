@@ -17,6 +17,14 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|Win32">
+      <Configuration>Test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|x64">
+      <Configuration>Test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -51,6 +59,12 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -104,9 +118,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -128,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\libs\dxerr.cpp" />
+    <ClCompile Include="..\UvcCommon\IsaAnim.cpp" />
     <ClCompile Include="..\UvcCommon\IsaBitMap.cpp" />
     <ClCompile Include="..\UvcCommon\UvcDDApp.cpp" />
     <ClCompile Include="..\UvcCommon\UvcDDrawClass.cpp" />
@@ -137,6 +153,9 @@
     <ClCompile Include="..\源.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Exceptions\IsaException.h" />
+    <ClInclude Include="..\libs\dxerr.h" />
+    <ClInclude Include="..\UvcCommon\IsaAnim.h" />
     <ClInclude Include="..\UvcCommon\IsaUtils.h" />
     <ClInclude Include="..\UvcCommon\IsaBitMap.h" />
     <ClInclude Include="..\UvcCommon\UvcDDApp.h" />

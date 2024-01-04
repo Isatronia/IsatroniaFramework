@@ -25,6 +25,12 @@
     <Filter Include="Header Files\libs">
       <UniqueIdentifier>{e7bcc556-7ea8-44ad-a8ec-278c20d9fd26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\libs">
+      <UniqueIdentifier>{788f9887-abf1-45e4-9926-77e27c07b696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exceptions">
+      <UniqueIdentifier>{425986b7-3172-43ad-b2b2-c339ba0ac369}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\UvcCommon\IsaBitMap.cpp">
@@ -49,7 +55,10 @@
       <Filter>Source Files\UvcCommon</Filter>
     </ClCompile>
     <ClCompile Include="..\libs\dxerr.cpp">
-      <Filter>Header Files\libs</Filter>
+      <Filter>Source Files\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UvcCommon\IsaAnim.cpp">
+      <Filter>Source Files\UvcCommon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +82,15 @@
     </ClInclude>
     <ClInclude Include="..\UvcCommon\UvcTimer.h">
       <Filter>Header Files\UvcCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\dxerr.h">
+      <Filter>Header Files\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UvcCommon\IsaAnim.h">
+      <Filter>Header Files\UvcCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exceptions\IsaException.h">
+      <Filter>Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

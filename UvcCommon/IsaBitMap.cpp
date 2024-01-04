@@ -1,143 +1,179 @@
 #include "IsaBitMap.h"
 
-template<typename T>
-void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
+namespace IsaD9Frame {
 
-IsaBitMap::IsaBitMap()
-{
-	mBitMapFileHeader = { 0 };
-	mBitMapInfoHeader = { 0 };
-	memset(&mPalette, 0, sizeof(mPalette));
-	this->setImage(nullptr);
-	this->setImageSize(0);
-}
 
-IsaBitMap::IsaBitMap(const char* fileName)
-{
-	IsaBitMap::loadImage(fileName);
-}
+	template<typename T>
+	void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 
-int IsaBitMap::loadImage(const char* fileName)
-{
-	// TODO: 在此处添加实现代码.
-
-	int fileHandle,	// the file handle
-		index;			// looping index
-
-	UCHAR* tempBuffer = nullptr;	// used to convert 24bit image to 16bit
-	OFSTRUCT fileData;
-	memset(&fileData, 0, sizeof(fileData));
-
-	if (-1 == (fileHandle = OpenFile(fileName, &fileData, OF_READ)))
+	IsaBitMap::IsaBitMap() : UvcImage()
 	{
-		return 0;
+		mBitMapFileHeader = { 0 };
+		mBitMapInfoHeader = { 0 };
+		memset(&mPalette, 0, sizeof(mPalette));
 	}
 
-	// load the bitmap file header
-	_lread(fileHandle, &mBitMapFileHeader, sizeof(BITMAPFILEHEADER));
-
-	// test if is a Bitmap
-	if (mBitMapFileHeader.bfType != 0x4D42)
+	IsaBitMap::IsaBitMap(const char* fileName)
 	{
-		_lclose(fileHandle);
-		return 0;
-	}// end if
+		IsaBitMap::loadImage(fileName);
+	}
 
-	// now load the bitmap file header
-	_lread(fileHandle, &mBitMapInfoHeader, sizeof(BITMAPINFOHEADER));
-
-	// what we need done for 8-bit bitmap
-	if (mBitMapInfoHeader.biBitCount == 8)
+	int IsaBitMap::loadImage(const char* fileName)
 	{
-		_lread(fileHandle, &mPalette,
-			256 * sizeof(PALETTEENTRY));
 
-		for (index = 0; index < 256; index++)
+		int fileHandle;	// the file handle
+		int index;		// looping index
+
+		UCHAR* tempBuffer = nullptr;	// used to convert 24bit image to 16bit
+		OFSTRUCT fileData;
+		memset(&fileData, 0, sizeof(fileData));
+
+		//if (-1 == (fileHandle = OpenFile(fileName, &fileData, OF_READ)))
+		if (HFILE_ERROR == (fileHandle = OpenFile(fileName, &fileData, OF_READ)))
 		{
-			// reverse the red and greed fields, maybe.
-			Swap(mPalette[index].peBlue, mPalette->peRed);
-
-			// aleays set the flags word to this
-			mPalette->peFlags = PC_NOCOLLAPSE;
-		}
-	}// end if
-
-	// in case of 16 bits
-	_llseek(fileHandle, -(int)(mBitMapFileHeader.bfSize), SEEK_END);
-
-	// now read in the Image
-	if (mBitMapInfoHeader.biBitCount == 8 ||
-		mBitMapInfoHeader.biBitCount == 16 ||
-		mBitMapInfoHeader.biBitCount == 24)
-	{
-		// if have another bitmap before, del it.
-		if (getImage() != nullptr)
-		{
-			free(getImage());
-		}
-
-		setImage((UCHAR*)malloc(mBitMapInfoHeader.biSizeImage));
-
-		if (!(getImage()))
-		{
-			_lclose(fileHandle);
 			return 0;
 		}
 
-		// now read.
-		_lread(fileHandle, getImage(), mBitMapInfoHeader.biSizeImage);
-	}// end if
-	else
-	{
-		return 0;
-	}
+		// load the bitmap file header
+		_lread(fileHandle, &mBitMapFileHeader, sizeof(BITMAPFILEHEADER));
 
-	_lclose(fileHandle);
-
-	Flip();
-
-	return 1;
-}
-
-int IsaBitMap::unloadImage()
-{
-	try {
-		if (getImage() != nullptr)
+		// test if is a Bitmap
+		if (mBitMapFileHeader.bfType != 0x4D42)
 		{
-			free(getImage());
-			setImage(nullptr);
+			_lclose(fileHandle);
+			return 0;
+		}// end if
+
+		// now load the bitmap file header
+		_lread(fileHandle, &mBitMapInfoHeader, sizeof(BITMAPINFOHEADER));
+
+		// what we need done for 8-bit bitmap
+		if (mBitMapInfoHeader.biBitCount == 8)
+		{
+			_lread(fileHandle, &mPalette,
+				256 * sizeof(PALETTEENTRY));
+
+			for (index = 0; index < 256; index++)
+			{
+				// reverse the red and greed fields, maybe.
+				Swap(mPalette[index].peBlue, mPalette->peRed);
+
+				// aleays set the flags word to this
+				mPalette->peFlags = PC_NOCOLLAPSE;
+			}
+		}// end if
+
+		// in case of 16 bits
+		_llseek(fileHandle, -(int)(mBitMapFileHeader.bfSize), SEEK_END);
+
+		// now read in the Image
+		if (mBitMapInfoHeader.biBitCount == 8 ||
+			mBitMapInfoHeader.biBitCount == 16 ||
+			mBitMapInfoHeader.biBitCount == 24)
+		{
+			// if have another bitmap before, del it.
+			if (getImage() != nullptr)
+			{
+				delete getImage();
+			}
+
+			setImage(new UCHAR[mBitMapInfoHeader.biSizeImage]);
+			// test if new failed.
+			if (!getImage())
+			{
+				_lclose(fileHandle);
+				return 0;
+			}
+
+			// now read.
+			_lread(fileHandle, getImage(), mBitMapInfoHeader.biSizeImage);
+		}// end if
+		else
+		{
+			return 0;
 		}
+
+		_lclose(fileHandle);
+
+		Flip();
+
+		setColorDepth(mBitMapInfoHeader.biBitCount);
+
 		return 1;
 	}
-	catch (...) {
+
+	int IsaBitMap::unloadImage()
+	{
+		try {
+			if (getImage() != nullptr)
+			{
+				delete getImage();
+				setImage(nullptr);
+			}
+			return 1;
+		}
+		catch (...) {
+			return 0;
+		}
 		return 0;
 	}
-	return 0;
-}
 
-bool IsaBitMap::Flip()
-{
-	// TODO: 在此处添加实现代码.
-	UCHAR* buffer = (UCHAR*)malloc(sizeof(getImage()));
-
-	if (mBitMapInfoHeader.biHeight < 0) return true; // the BM do not need flip.
-	if (mBitMapInfoHeader.biBitCount < 8) return false;	// not deal with 1&4bit bitmap.
-
-	//mBitCnt = mBitMapInfoHeader.biBitCount / 8;
-	setImageSize(mBitMapInfoHeader.biBitCount / 8);
-
-	// Flip the bitmap
-	for (int y = 0; y < mBitMapInfoHeader.biHeight; y++)
+	bool IsaBitMap::Flip()
 	{
-		memcpy(buffer + y * (int)mBitMapInfoHeader.biHeight,
-			getImage() + ((int)mBitMapInfoHeader.biHeight - y) * mBitMapInfoHeader.biHeight,
-			mBitMapInfoHeader.biWidth);
+		// TODO: 在此处添加实现代码.
+		UCHAR* buffer = new UCHAR[sizeof(getImage())];
+
+		if (mBitMapInfoHeader.biHeight < 0) return true; // the BM do not need flip.
+		if (mBitMapInfoHeader.biBitCount < 8) return false;	// not deal with 1&4bit bitmap.
+
+		//mBitCnt = mBitMapInfoHeader.biBitCount / 8;
+		setImageSize(mBitMapInfoHeader.biBitCount / 8);
+
+		// Flip the bitmap
+		for (int y = 0; y < mBitMapInfoHeader.biHeight; y++)
+		{
+			memcpy(buffer + y * (int)mBitMapInfoHeader.biHeight,
+				getImage() + ((int)mBitMapInfoHeader.biHeight - y) * mBitMapInfoHeader.biHeight,
+				mBitMapInfoHeader.biWidth);
+		}
+
+		delete getImage();
+		setImage(buffer);
+		buffer = nullptr;
+		return true;
 	}
 
-	free(getImage());
-	setImage(buffer);
-	buffer = nullptr;
-	return true;
+	RGBInfo IsaBitMap::getPixelRGB(int x, int y) {
+		if (mBitMapInfoHeader.biBitCount < 8) return RGBInfo(0, 0, 0);
+		RGBInfo col(0, 0, 0);
+		UCHAR* mBuffer = getImage();
+		switch (mBitMapInfoHeader.biBitCount)
+		{
+		case 16:
+		{
+			col.b = (mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 2 + 0]) >> 3;
+			col.g = (mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 2 + 1]) >> 2;
+			col.r = (mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 2 + 2]) >> 3;
+		}
+		break;
+		case 24:
+		{
+			col.b = mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 3 + 0];
+			col.g = mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 3 + 1];
+			col.r = mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 3 + 2];
+		}
+		break;
+		case 32:
+		{
+			col.b = mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 4 + 0];
+			col.g = mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 4 + 1];
+			col.r = mBuffer[(x + y * mBitMapInfoHeader.biWidth) * 4 + 2];
+		}
+		break;
+		default:break;
+		}
+		return col;
+	}
 }
 
 //LPDIRECTDRAWSURFACE7 IsaBitMap::CreatDDSurface(int Height, int Width, int mem_flags)
