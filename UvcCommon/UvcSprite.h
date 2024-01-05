@@ -1,9 +1,9 @@
 #include <vector>
 
-#include "UvcImage.h"
+#include "IsaImage.h"
 #include "IsaAnim.h"
 
-namespace IsaD9Frame {
+namespace IsaFrame::IsaSpriteFrame {
 	using std::vector;
 	enum spriteState {
 		die,

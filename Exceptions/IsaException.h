@@ -5,17 +5,20 @@
 
 //#define __POSTERR(str) {MessageBox(0, str, L"Error", NULL);}
 
-namespace Isatronia {
+namespace IsaFrame::Exception {
+
 	using namespace std;
 
-	template<typename T>
-	concept isString = typeid(T) == typeid(string) || typeid(T) == typeid(wstring);
-
-	template<typename T>
-	void __POSTERR(wstring msg, wstring title = L"Error") {
-		MessageBox(0, msg, title, NULL);
+	void postError(wstring msg, wstring title = L"Error") {
+		MessageBox(0, msg.c_str(), title.c_str(), NULL);
 		return;
 	}
+
+	void postError(string msg, string title = "Error") {
+		MessageBoxA(0, msg.c_str(), title.c_str(), NULL);
+		return;
+	}
+
 	// Base Esception
 	class Exception {
 	private:
@@ -28,12 +31,36 @@ namespace Isatronia {
 		virtual wstring getExceptionInfo() { return mExceptionInfo; };
 
 		virtual void showExceptionDialog(bool fatal = false) {
-			__POSTERR(mExceptionInfo);
+			postError(mExceptionInfo);
 			if (fatal) {
 				exit(-1);
 			}
 			return;
 		}
+	protected:
+		void setExceptionInfo(wstring ExceptionInfo) { mExceptionInfo = ExceptionInfo; };
+	};
+
+	class FileException : public Exception
+	{
+	private:
+		wstring mFilePath;
+	public:
+		FileException(wstring desc, wstring path) : Exception(desc), mFilePath(path) {};
+
+		wstring getFilePath() { return mFilePath; };
+		void setFilePath(wstring path) { mFilePath = path; };
+
+		virtual void showExceptionDialog(bool fatal = false)override {
+			wstring tempInfo = L"";
+			tempInfo = L"";
+		}
+	};
+
+	class RuntimeException : public Exception
+	{
+	public:
+		RuntimeException(wstring ExceptionInfo) : Exception(ExceptionInfo) {};
 	};
 
 	template<typename T>
@@ -42,7 +69,7 @@ namespace Isatronia {
 	private:
 		T* mArrayAddress;
 	public:
-		ArrayIndexOutOfBoundException(wstring info, T* arr): 
+		ArrayIndexOutOfBoundException(wstring info, T* arr) :
 			Exception(info),
 			mArrayAddress(arr)
 		{};

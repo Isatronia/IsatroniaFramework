@@ -2,7 +2,7 @@
 
 #define __RGB32BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) + ((a) << 24))
 
-namespace IsaD9Frame {
+namespace IsaFrame::IsaUtil {
 
 	// UvcRect类：
 	// 存储了一些用于渲染和判定的矩形

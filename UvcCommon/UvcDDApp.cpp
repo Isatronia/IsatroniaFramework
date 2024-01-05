@@ -22,7 +22,7 @@
 #define __RGB16BIT565(r,g,b) ((b & 31) + ((g & 63) << 5) + ((r & 31) << 11))
 #define __RGB32BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) + ((a) << 24))
 
-namespace IsaD9Frame {
+namespace IsaFrame::IsaD9Frame {
 
 
 	LRESULT CALLBACK

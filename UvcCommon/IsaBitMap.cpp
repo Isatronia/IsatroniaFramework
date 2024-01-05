@@ -18,7 +18,7 @@ namespace IsaD9Frame {
 		IsaBitMap::loadImage(fileName);
 	}
 
-	int IsaBitMap::loadImage(const char* fileName)
+	void IsaBitMap::loadImage(const char* fileName)
 	{
 
 		int fileHandle;	// the file handle
@@ -99,10 +99,10 @@ namespace IsaD9Frame {
 
 		setColorDepth(mBitMapInfoHeader.biBitCount);
 
-		return 1;
+		return;
 	}
 
-	int IsaBitMap::unloadImage()
+	void IsaBitMap::unloadImage()
 	{
 		try {
 			if (getImage() != nullptr)
@@ -110,21 +110,24 @@ namespace IsaD9Frame {
 				delete getImage();
 				setImage(nullptr);
 			}
-			return 1;
+			return;
 		}
 		catch (...) {
-			return 0;
+			return;
 		}
-		return 0;
+		return;
 	}
 
-	bool IsaBitMap::Flip()
+	void IsaBitMap::Flip()
 	{
 		// TODO: 在此处添加实现代码.
 		UCHAR* buffer = new UCHAR[sizeof(getImage())];
 
-		if (mBitMapInfoHeader.biHeight < 0) return true; // the BM do not need flip.
-		if (mBitMapInfoHeader.biBitCount < 8) return false;	// not deal with 1&4bit bitmap.
+		if (mBitMapInfoHeader.biHeight < 0) return; // the BM do not need flip.
+		if (mBitMapInfoHeader.biBitCount < 8) {
+			throw(new BitmapFlipException());
+			return;	// not deal with 1&4bit bitmap.
+		}
 
 		//mBitCnt = mBitMapInfoHeader.biBitCount / 8;
 		setImageSize(mBitMapInfoHeader.biBitCount / 8);

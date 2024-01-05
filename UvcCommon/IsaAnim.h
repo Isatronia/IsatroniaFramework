@@ -2,7 +2,7 @@
 
 #include "UvcImage.h"
 
-namespace IsaD9Frame {
+namespace IsaFrame::IsaSpriteFrame {
 
 	class IsaAnim {
 	private:

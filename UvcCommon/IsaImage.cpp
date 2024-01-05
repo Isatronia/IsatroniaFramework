@@ -1,4 +1,4 @@
-#include "UvcImage.h"
+#include "IsaImage.h"
 
 #define __POSTERR(str) {MessageBoxA(0, str, L"Error", NULL);}
 

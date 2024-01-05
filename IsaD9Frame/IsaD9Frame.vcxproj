@@ -146,21 +146,21 @@
     <ClCompile Include="..\UvcCommon\IsaAnim.cpp" />
     <ClCompile Include="..\UvcCommon\IsaBitMap.cpp" />
     <ClCompile Include="..\UvcCommon\UvcDDApp.cpp" />
-    <ClCompile Include="..\UvcCommon\UvcDDrawClass.cpp" />
-    <ClCompile Include="..\UvcCommon\UvcImage.cpp" />
+    <ClCompile Include="..\UvcCommon\IsaImage.cpp" />
     <ClCompile Include="..\UvcCommon\UvcSprite.cpp" />
     <ClCompile Include="..\UvcCommon\UvcTimer.cpp" />
     <ClCompile Include="..\源.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Exceptions\IsaException.h" />
+    <ClInclude Include="..\Exceptions\IsaImageException.h" />
+    <ClInclude Include="..\I18N\IsaI18N.h" />
     <ClInclude Include="..\libs\dxerr.h" />
     <ClInclude Include="..\UvcCommon\IsaAnim.h" />
     <ClInclude Include="..\UvcCommon\IsaUtils.h" />
     <ClInclude Include="..\UvcCommon\IsaBitMap.h" />
     <ClInclude Include="..\UvcCommon\UvcDDApp.h" />
-    <ClInclude Include="..\UvcCommon\UvcDDrawClass.h" />
-    <ClInclude Include="..\UvcCommon\UvcImage.h" />
+    <ClInclude Include="..\UvcCommon\IsaImage.h" />
     <ClInclude Include="..\UvcCommon\UvcSprite.h" />
     <ClInclude Include="..\UvcCommon\UvcTimer.h" />
   </ItemGroup>

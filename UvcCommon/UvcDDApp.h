@@ -20,8 +20,7 @@
 
 #define ReleaseCOM(x) { if(x){ x->Release(); x = nullptr; } }
 
-namespace IsaD9Frame {
-
+namespace IsaFrame::IsaD9Frame {
 
 	class UvcDDApp
 	{

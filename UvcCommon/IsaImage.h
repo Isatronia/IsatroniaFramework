@@ -12,7 +12,7 @@
 
 #include "IsaUtils.h"
 
-namespace IsaD9Frame {
+namespace IsaFrame::IsaSpriteFrame {
 
 	class UvcImage
 	{
@@ -32,7 +32,7 @@ namespace IsaD9Frame {
 		~UvcImage();
 
 		// load image from file.
-		virtual int loadImage(const char* fileName) = 0;
+		virtual void loadImage(const char* fileName) = 0;
 		virtual void unloadImage() = 0;
 
 

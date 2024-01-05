@@ -1,18 +1,18 @@
 #include "IsaAnim.h"
 
-namespace IsaD9Frame {
+namespace IsaFrame::IsaSpriteFrame {
 	using std::vector;
 
 	IsaAnim::IsaAnim() {
-		this->mAnimClip = vector<UvcImage>();
+		this->mAnimClip = vector<IsaImage>();
 		return;
 	}
 
-	vector<UvcImage> IsaAnim::getClip() {
+	vector<IsaImage> IsaAnim::getClip() {
 		return this->mAnimClip;
 	}
 
-	void IsaAnim::setClip(vector<UvcImage> clip) {
+	void IsaAnim::setClip(vector<IsaImage> clip) {
 		this->mAnimClip = clip;
 		return;
 	}

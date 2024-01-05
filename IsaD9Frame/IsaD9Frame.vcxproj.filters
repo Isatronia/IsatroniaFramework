@@ -31,15 +31,15 @@
     <Filter Include="Exceptions">
       <UniqueIdentifier>{425986b7-3172-43ad-b2b2-c339ba0ac369}</UniqueIdentifier>
     </Filter>
+    <Filter Include="I18N">
+      <UniqueIdentifier>{f57d1833-0a17-4f1a-b295-af9d2dd6f5af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\UvcCommon\IsaBitMap.cpp">
       <Filter>Source Files\UvcCommon</Filter>
     </ClCompile>
-    <ClCompile Include="..\UvcCommon\UvcDDrawClass.cpp">
-      <Filter>Source Files\UvcCommon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\UvcCommon\UvcImage.cpp">
+    <ClCompile Include="..\UvcCommon\IsaImage.cpp">
       <Filter>Source Files\UvcCommon</Filter>
     </ClCompile>
     <ClCompile Include="..\源.cpp">
@@ -62,10 +62,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\UvcCommon\UvcDDrawClass.h">
-      <Filter>Header Files\UvcCommon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\UvcCommon\UvcImage.h">
+    <ClInclude Include="..\UvcCommon\IsaImage.h">
       <Filter>Header Files\UvcCommon</Filter>
     </ClInclude>
     <ClInclude Include="..\UvcCommon\UvcSprite.h">
@@ -91,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="..\Exceptions\IsaException.h">
       <Filter>Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exceptions\IsaImageException.h">
+      <Filter>Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\I18N\IsaI18N.h">
+      <Filter>I18N</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

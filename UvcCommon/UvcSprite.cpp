@@ -1,6 +1,6 @@
 #include "UvcSprite.h"
 #include "IsaBitMap.h"
-namespace IsaD9Frame {
+namespace IsaFrame::IsaSpriteFrame {
 	Sprite::Sprite()
 	{
 		memset(&mHitBox, 0, sizeof(RECT));
