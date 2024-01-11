@@ -1,12 +1,82 @@
-#include "IsaImage.h"
+#include "Image.h"
 
-#define __POSTERR(str) {MessageBoxA(0, str, L"Error", NULL);}
+//#define __POSTERR(str) {MessageBoxA(0, str, L"Error", NULL);}
 
+namespace Isatronia::Resource {
+	// ---------------------------------------------------
+	// Methods
+	// ---------------------------------------------------
+	void Image::unloadImage() {
+		if (getImage())
+		{
+			delete getImage();
+		}
+		setImage(nullptr);
+		setColorDepth(0);
+		setImageDimension(POINT{ 0, 0 });
+		setImageSize(0);
+	}
 
-template<typename T>
-void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
+	// ---------------------------------------------------
+	// Constructors
+	// ---------------------------------------------------
+	Image::Image() {
+		setImageDimension(POINT{ 0 ,0 });
+		setColorDepth(0);
+		setImage(nullptr);
+		setImageSize(0);
+		return;
+	}
 
-//UvcImage::UvcImage()
+	Image::~Image() {
+		if (mBuffer) {
+			delete mBuffer;
+		}
+		return;
+	}
+
+	// ---------------------------------------------------
+	// Getters And Setters
+	// ---------------------------------------------------
+
+	POINT Image::getImageDimension() {
+		return mImageDimension;
+	}
+
+	void Image::setImageDimension(POINT dim) {
+		mImageDimension = dim;
+		return;
+	}
+
+	UCHAR* Image::getImage() {
+		return mBuffer;
+	}
+
+	void Image::setImage(UCHAR* img) {
+		mBuffer = img;
+		return;
+	}
+
+	int Image::getImageSize() {
+		return mBitCnt;
+	}
+
+	void Image::setImageSize(int size) {
+		mBitCnt = size;
+		return;
+	}
+
+	int Image::getColorDepth() {
+		return mColorDepth;
+	}
+
+	void Image::setColorDepth(int colorDepth) {
+		mColorDepth = colorDepth;
+		return;
+	}
+}
+
+//Image::Image()
 //{
 //	mBitMapFileHeader = { 0 };
 //	mBitMapInfoHeader = { 0 };
@@ -15,16 +85,16 @@ void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 //	mBitCnt = 0;
 //}
 //
-//UvcImage::UvcImage(const char* fileName)
+//Image::Image(const char* fileName)
 //{
-//	UvcImage::loadImage(fileName);
+//	Image::loadImage(fileName);
 //}
 //
-//UvcImage::~UvcImage()
+//Image::~Image()
 //{
 //}
 //
-//int UvcImage::loadImage(const char* fileName)
+//int Image::loadImage(const char* fileName)
 //{
 //	// TODO: 在此处添加实现代码.
 //
@@ -105,7 +175,7 @@ void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 //	return 1;
 //}
 //
-//int UvcImage::unloadImage()
+//int Image::unloadImage()
 //{
 //	if (mBuffer != nullptr)
 //	{
@@ -115,7 +185,7 @@ void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 //	return 1;
 //}
 //
-//bool UvcImage::Flip()
+//bool Image::Flip()
 //{
 //	// TODO: 在此处添加实现代码.
 //	UCHAR* buffer = (UCHAR*)malloc(sizeof(mBuffer));
@@ -138,7 +208,7 @@ void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 //	return true;
 //}
 //
-//RECT UvcImage::getRect()
+//RECT Image::getRect()
 //{
 //	RECT r = { 0 };
 //	r.top = 0;
@@ -148,7 +218,7 @@ void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 //	return r;
 //}
 //
-//RECT UvcImage::GetDestRect(long x, long y)
+//RECT Image::GetDestRect(long x, long y)
 //{
 //	RECT r = { 0 };
 //	r.top = y;
@@ -159,12 +229,12 @@ void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
 //}
 
 /*
-LPDIRECTDRAWSURFACE7 UvcImage::GetDDSurface()
+LPDIRECTDRAWSURFACE7 Image::GetDDSurface()
 {
 	return mlpDDS7;
 }
 
-RECT UvcImage::GetRect()
+RECT Image::GetRect()
 {
 	RECT r = { 0 };
 	r.top = 0;
@@ -174,7 +244,7 @@ RECT UvcImage::GetRect()
 	return r;
 }
 
-LPDIRECTDRAWSURFACE7 UvcImage::CreatDDSurface(LPDIRECTDRAW7& lpDD7, int Height, int Width, int mem_flags)
+LPDIRECTDRAWSURFACE7 Image::CreatDDSurface(LPDIRECTDRAW7& lpDD7, int Height, int Width, int mem_flags)
 {
 	DDSURFACEDESC2 ddsd;
 	LPDIRECTDRAWSURFACE7 lpdds7;
@@ -200,7 +270,7 @@ LPDIRECTDRAWSURFACE7 UvcImage::CreatDDSurface(LPDIRECTDRAW7& lpDD7, int Height, 
 	return lpdds7;
 }
 
-int UvcImage::loadBufferTODDSurface(LPDIRECTDRAW7& lpdd7)
+int Image::loadBufferTODDSurface(LPDIRECTDRAW7& lpdd7)
 {
 	mlpDDS7 = CreatDDSurface(lpdd7, mBitMapInfoHeader.biHeight, mBitMapInfoHeader.biWidth);
 
@@ -253,7 +323,7 @@ int UvcImage::loadBufferTODDSurface(LPDIRECTDRAW7& lpdd7)
 	return 1;
 }
 
-int UvcImage::loadImageToDDSurface(LPDIRECTDRAW7& lpdd7, const char* fileName)
+int Image::loadImageToDDSurface(LPDIRECTDRAW7& lpdd7, const char* fileName)
 {
 	if (!loadImage(fileName))
 	{

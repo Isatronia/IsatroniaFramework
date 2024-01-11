@@ -142,27 +142,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
+    <ClCompile Include="..\Isatronia\Framework\Timer.cpp" />
+    <ClCompile Include="..\Isatronia\Platform\App.cpp" />
+    <ClCompile Include="..\Isatronia\Platform\DDApp.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Bitmap.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Image.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Animation.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Resource.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />
     <ClCompile Include="..\libs\dxerr.cpp" />
-    <ClCompile Include="..\UvcCommon\IsaAnim.cpp" />
-    <ClCompile Include="..\UvcCommon\IsaBitMap.cpp" />
-    <ClCompile Include="..\UvcCommon\UvcDDApp.cpp" />
-    <ClCompile Include="..\UvcCommon\IsaImage.cpp" />
-    <ClCompile Include="..\UvcCommon\UvcSprite.cpp" />
-    <ClCompile Include="..\UvcCommon\UvcTimer.cpp" />
-    <ClCompile Include="..\源.cpp" />
+    <ClCompile Include="..\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Exceptions\IsaException.h" />
-    <ClInclude Include="..\Exceptions\IsaImageException.h" />
-    <ClInclude Include="..\I18N\IsaI18N.h" />
+    <ClInclude Include="..\Isatronia\Exceptions\Exception.h" />
+    <ClInclude Include="..\Isatronia\Exceptions\IsaImageException.h" />
+    <ClInclude Include="..\Isatronia\Framework\IsaUtils.h" />
+    <ClInclude Include="..\Isatronia\Framework\Timer.h" />
+    <ClInclude Include="..\Isatronia\Platform\App.h" />
+    <ClInclude Include="..\Isatronia\Platform\DDApp.h" />
+    <ClInclude Include="..\Isatronia\Resource\BitMap.h" />
+    <ClInclude Include="..\Isatronia\Resource\Image.h" />
+    <ClInclude Include="..\Isatronia\Resource\Animation.h" />
+    <ClInclude Include="..\Isatronia\Resource\Resource.h" />
+    <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h" />
+    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h" />
     <ClInclude Include="..\libs\dxerr.h" />
-    <ClInclude Include="..\UvcCommon\IsaAnim.h" />
-    <ClInclude Include="..\UvcCommon\IsaUtils.h" />
-    <ClInclude Include="..\UvcCommon\IsaBitMap.h" />
-    <ClInclude Include="..\UvcCommon\UvcDDApp.h" />
-    <ClInclude Include="..\UvcCommon\IsaImage.h" />
-    <ClInclude Include="..\UvcCommon\UvcSprite.h" />
-    <ClInclude Include="..\UvcCommon\UvcTimer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

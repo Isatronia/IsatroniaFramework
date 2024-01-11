@@ -1,5 +1,5 @@
-#include "UvcSprite.h"
-#include "IsaBitMap.h"
+#include "Sprite.h"
+#include "../Resource/BitMap.h"
 namespace IsaFrame::IsaSpriteFrame {
 	Sprite::Sprite()
 	{

@@ -1,24 +1,54 @@
-#include "IsaBitMap.h"
+#pragma once
 
-namespace IsaD9Frame {
+#include <Windows.h>
+#include <iostream>
+#include <conio.h>
+
+#include <ddraw.h>
+#include "Image.h"
+
+namespace Isatronia::Resource {
 
 
-	template<typename T>
-	void Swap(T& a, T& b) { T c; c = a; a = b; b = c; };
+	class Bitmap : public Image
+	{
+	private:
 
-	IsaBitMap::IsaBitMap() : UvcImage()
+		BITMAPFILEHEADER mBitMapFileHeader;
+
+		BITMAPINFOHEADER mBitMapInfoHeader;
+
+		PALETTEENTRY mPalette[256];
+	public:
+		Bitmap();
+		Bitmap(const char* fileName);
+		~Bitmap();
+
+		void loadImage(const char* fileName)override;
+		void unloadImage()override;
+
+		void Flip();
+
+		RECT getImageRect();
+		RECT GetDestRect(long x, long y);
+
+		RGBInfo getPixelRGB(int x, int y)override;
+
+	};
+
+	Bitmap::Bitmap() : Image()
 	{
 		mBitMapFileHeader = { 0 };
 		mBitMapInfoHeader = { 0 };
 		memset(&mPalette, 0, sizeof(mPalette));
 	}
 
-	IsaBitMap::IsaBitMap(const char* fileName)
+	Bitmap::Bitmap(const char* fileName)
 	{
-		IsaBitMap::loadImage(fileName);
+		Bitmap::loadImage(fileName);
 	}
 
-	void IsaBitMap::loadImage(const char* fileName)
+	void Bitmap::loadImage(const char* fileName)
 	{
 
 		int fileHandle;	// the file handle
@@ -102,7 +132,7 @@ namespace IsaD9Frame {
 		return;
 	}
 
-	void IsaBitMap::unloadImage()
+	void Bitmap::unloadImage()
 	{
 		try {
 			if (getImage() != nullptr)
@@ -118,7 +148,7 @@ namespace IsaD9Frame {
 		return;
 	}
 
-	void IsaBitMap::Flip()
+	void Bitmap::Flip()
 	{
 		// TODO: 在此处添加实现代码.
 		UCHAR* buffer = new UCHAR[sizeof(getImage())];
@@ -146,7 +176,7 @@ namespace IsaD9Frame {
 		return true;
 	}
 
-	RGBInfo IsaBitMap::getPixelRGB(int x, int y) {
+	RGBInfo Bitmap::getPixelRGB(int x, int y) {
 		if (mBitMapInfoHeader.biBitCount < 8) return RGBInfo(0, 0, 0);
 		RGBInfo col(0, 0, 0);
 		UCHAR* mBuffer = getImage();
@@ -179,7 +209,7 @@ namespace IsaD9Frame {
 	}
 }
 
-//LPDIRECTDRAWSURFACE7 IsaBitMap::CreatDDSurface(int Height, int Width, int mem_flags)
+//LPDIRECTDRAWSURFACE7 Bitmap::CreatDDSurface(int Height, int Width, int mem_flags)
 //{
 //	DDSURFACEDESC2 ddsd;
 //	LPDIRECTDRAWSURFACE7 lpdds7;

@@ -2,7 +2,7 @@
 
 #include "IsaException.h"
 
-namespace IsaFrame::Exception {
+namespace Isatronia::Exception {
 
 	class ImageException : public FileException {
 	public:

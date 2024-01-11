@@ -7,8 +7,8 @@
 #include <vector>
 #include <map>
 
-#include "UvcCommon/UvcDDrawClass.h"
-#include "./UvcCommon/IsaUtils.h"
+#include "./Isatronia/Platform/DDApp.h"
+#include "./Isatronia/Exceptions/Exception.h"
 
 using std::string;
 using std::deque;
@@ -18,23 +18,22 @@ using std::pair;
 
 
 
-#define __POSTERR(str) {MessageBox(0, str, "Error", NULL);}
-#define UvcDXInit_s(res, str) { if (FAILED(res)) {__POSTERR(str);return false; } }
-#define InitDDStruct(dds) {memset(&dds, 0, sizeof(decltype(dds)); dds.dwsize = decltype(dds))}
+//#define __POSTERR(str) {MessageBox(0, str, "Error", NULL);}
+//#define UvcDXInit_s(res, str) { if (FAILED(res)) {__POSTERR(str);return false; } }
+//#define InitDDStruct(dds) {memset(&dds, 0, sizeof(decltype(dds)); dds.dwsize = decltype(dds))}
 
-#define __GAME_STATE_MENU__		0
-#define __GAME_STATE_RUN__		1
-#define __GAME_STATE_WIN__		2
-#define __GAME_STATE_DIE__		3
-#define __GAME_STATE_END__		4
-#define __GAME_STATE_STGINIT__	5
-
-#include "UvcCommon/UvcDDApp.h"
+//#define __GAME_STATE_MENU__		0
+//#define __GAME_STATE_RUN__		1
+//#define __GAME_STATE_WIN__		2
+//#define __GAME_STATE_DIE__		3
+//#define __GAME_STATE_END__		4
+//#define __GAME_STATE_STGINIT__	5
 
 
-using namespace IsaD9Frame;
+using namespace Isatronia::Windows;
 
-enum gGameState {
+
+enum class GameState {
 	menu,
 	run,
 	win,
@@ -43,26 +42,23 @@ enum gGameState {
 	stginit
 };
 
-class TestApp :public UvcDDApp
+class TestApp :public DDApp
 {
 public:
 
-	//TestApp(HINSTANCE hInstance) :UvcDDApp(hInstance) { mFullScreenState = false; };
-	explicit TestApp(HINSTANCE hInstance, int Width = 1920, int Height = 1080) :UvcDDApp(hInstance) { mFullScreenState = false; mClientWidth = Width; mClientHeight = Height; };
+	//TestApp(HINSTANCE hInstance) :App(hInstance) { mFullScreenState = false; };
+	explicit TestApp(HINSTANCE hInstance, int Width = 1920, int Height = 1080) :DDApp(hInstance) { mFullScreenState = false; mClientWidth = Width; mClientHeight = Height; };
 	virtual LRESULT MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-	virtual bool Initialize();
+	virtual void Initialize();
 	virtual void GlobalInitialization();
 private:
-	virtual void Draw(const UvcTimer& Timer)override;
-	virtual void Update(const UvcTimer& Timer)override;
+	virtual void Draw(const Timer& Timer)override;
+	virtual void Update(const Timer& Timer)override;
 	
 
 public:
 	void Pause() { mAppPaused = true; return; };
 	void unPause() { mAppPaused = false; return; };
-	
-
-
 };
 
 
@@ -78,18 +74,15 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hprevInstance,
 	try {
 		// 前置数据载入
 
-		// Init UvcDDApp
+		// Init App
 		TestApp app(hInstance);
-		if (!app.Initialize())
-			throw 2;
-
+		app.Initialize();
 		return app.Run();
 	}
-	catch (int a)
+	catch (Isatronia::Exception::Exception* e)
 	{
-		sprintf_s(sz, "%d", a);
-		MessageBoxA(nullptr, sz, "Fatal Error", NULL);
-		return a;
+		e->showExceptionDialog();
+		return -1;
 	}
 	catch (...)
 	{
@@ -99,12 +92,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hprevInstance,
 	return -1;
 }
 
-void TestApp::Draw(const UvcTimer& Timer)
+void TestApp::Draw(const Timer& Timer)
 {
 	return;
 }
 
-void TestApp::Update(const UvcTimer& Timer)
+void TestApp::Update(const Timer& Timer)
 {
 	// TODO: 在此处添加实现代码.
 
@@ -134,14 +127,14 @@ void TestApp::Update(const UvcTimer& Timer)
 	}
 
 	//if (!ShowDebugInfo)	return;
-	//if (FAILED(mlpDDSurefacePrimary->GetDC(&hdc)))
-	//{
-	//	__POSTERR("DC get ERR")
-	//		return;
-	//}
-	//old_fcol = SetTextColor(hdc, RGB(255, 255, 255));
-	//old_bcol = SetBkColor(hdc, RGB(0, 0, 0));
-	//old_tmode = SetBkMode(hdc, TRANSPARENT);
+	if (FAILED(mlpDDSurefacePrimary->GetDC(&hdc)))
+	{
+		__POSTERR("DC get ERR")
+			return;
+	}
+	old_fcol = SetTextColor(hdc, RGB(255, 255, 255));
+	old_bcol = SetBkColor(hdc, RGB(0, 0, 0));
+	old_tmode = SetBkMode(hdc, TRANSPARENT);
 
 	//sprintf_s(debug, "RECT: left:%d right:%d top:%d bottom:%d", Chara.detectRect.left, Chara.detectRect.right, Chara.detectRect.top, Chara.detectRect.bottom);
 	//TextOut(hdc, 0, 30, debug, strlen(debug));
@@ -154,15 +147,19 @@ void TestApp::Update(const UvcTimer& Timer)
 	//sprintf_s(debug, "LeftEnimy: %d", EnimyList.size());
 	//TextOut(hdc, 0, 90, debug, strlen(debug));
 
-	//SetTextColor(hdc, old_fcol);
-	//SetBkColor(hdc, old_bcol);
-	//SetBkMode(hdc, old_tmode);
-	//if (FAILED(mlpDDSurefacePrimary->ReleaseDC(hdc)))
-	//{
-	//	__POSTERR("DC release ERR")
-	//		return;
-	//}
+	SetTextColor(hdc, old_fcol);
+	SetBkColor(hdc, old_bcol);
+	SetBkMode(hdc, old_tmode);
+	if (FAILED(mlpDDSurefacePrimary->ReleaseDC(hdc)))
+	{
+		__POSTERR("DC release ERR")
+			return;
+	}
 
+	return;
+}
+
+void TestApp::GlobalInitialization() {
 	return;
 }
 
@@ -207,7 +204,7 @@ void TestApp::Update(const UvcTimer& Timer)
 	//		Chara.Fall();
 	//		break;
 	//	}
-
+	//
 	//	break;
 	//case VK_LEFT:
 	//case 'A':
@@ -226,13 +223,13 @@ void TestApp::Update(const UvcTimer& Timer)
 	//		break;
 	//	default:break;
 	//	}
-
+	//
 	//	break;
 	//case VK_RIGHT:
 	//case 'D':
 	//	Chara.RunRight();
 	//	break;
-
+	//
 	//case 'Z':
 	//case VK_RETURN:
 	//	switch (mGameState)
@@ -251,17 +248,17 @@ void TestApp::Update(const UvcTimer& Timer)
 	//		default:break;
 	//		}
 	//		break;
-
+	//
 	//	case __GAME_STATE_RUN__:
 	//	{
 	//		Chara.Fireing();
 	//	}
 	//	break;
-
+	//
 	//	default:
 	//		break;
 	//	}
-
+	//
 	//	break;// end return.
 	//case VK_ESCAPE:
 	//	PostQuitMessage(0);
@@ -269,7 +266,7 @@ void TestApp::Update(const UvcTimer& Timer)
 	//case VK_F2:
 	//	mAppPaused = !mAppPaused;
 	//	break;// end f2
-
+	//
 	//case VK_F3:
 	//	ShowDebugInfo = !ShowDebugInfo;
 	//	break;
@@ -309,23 +306,23 @@ void TestApp::Update(const UvcTimer& Timer)
 //	return;
 //}
 
-bool TestApp::Initialize()
+void TestApp::Initialize()
 {
 	// TODO: 在此处添加实现代码.
 	if (!InitMainWindow())
 	{
-		MessageBoxA(0, "InitWindow Failed.", "", MB_OK);
-		return false;
+		throw new Isatronia::Exception::RuntimeException(
+			L"Initralize main window Failed.");
 	}
 
 	if (!InitDDraw())
 	{
-		MessageBoxA(0, "InitDD Failed.", "", MB_OK);
-		return false;
+		throw new Isatronia::Exception::RuntimeException(
+			L"Initralize DirectDraw Failed.");
 	}
 	GlobalInitialization();
 	OnResize();
-	return true;
+	return;
 }
 
 LRESULT TestApp::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -630,12 +627,12 @@ inline bool IsIn(POINT p, RECT rect);
 // Init Class's static member.
 int Role::mClientWidth = 800;
 int Role::mClientHeight = 600;
-UvcImage TestApp::bkg;
+Image TestApp::bkg;
 
 // Stage Map
-UvcImage Map;
+Image Map;
 // Menu Bkg.
-UvcImage MenuBkg;
+Image MenuBkg;
 // new Charas.(BOBs)
 Role Chara(10, 10);
 // Chara's AnimList
@@ -745,7 +742,7 @@ void Role::GetCanvasPF()
 	void DrawImageToCanvas();
 void Role::DrawImageToCanvas()
 {
-	UvcImage* tag = nullptr;
+	Image* tag = nullptr;
 	if (mfaceRight)
 	{
 		if (mAnimIndex)

@@ -6,8 +6,13 @@
 
 #include "../Exceptions/IsaException.h"
 
-namespace IsaFrame::I18N {
+namespace Isatronia::I18N {
 	using namespace std;
+
+	enum class DisplayLanguage {
+		English_US,
+		Chinese_Simplifieded,
+	};
 
 	wstring CheckLocal() {
 		LCID lcid = GetThreadLocale();

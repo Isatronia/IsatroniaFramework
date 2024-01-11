@@ -1,25 +1,29 @@
 #include <vector>
 
-#include "IsaImage.h"
-#include "IsaAnim.h"
+#include "../Resource/Image.h"
+#include "../Resource/Animation.h"
 
 namespace IsaFrame::IsaSpriteFrame {
 	using std::vector;
 	enum spriteState {
 		die,
 	};
+
+	using Isatronia::Resource::Animation;
+	using Isatronia::Resource::Image;
+
 	// Role类：
 	// 存储了玩家信息，包括贴图和位置
 	// 以及一部分的物理信息，如速度
 	// 开枪高度y+36
+	
+
 	// Sprite - 精灵基类
+	// Basic Class for all Sprite.
+	// Define your Sprite form this class
 	class Sprite
 	{
-		// static variables.
-	private:
-		static const int __G__ = 0;
-
-	private:
+	protected:
 		int mJumpTimes;
 
 		LONG mCharax;
@@ -36,7 +40,7 @@ namespace IsaFrame::IsaSpriteFrame {
 		RECT mHitBox;
 
 		// 角色贴图
-		vector<IsaAnim> mImgRes;
+		Animation mImgRes;
 
 
 		//void SetClientSize(int Width, int Height);
@@ -58,7 +62,7 @@ namespace IsaFrame::IsaSpriteFrame {
 	// -----------------------------------------------
 	public:
 		// 读取待渲染贴图，依据内部变量自动选择。
-		UvcImage* getCurrentImage();
+		Image* getCurrentImage();
 		// 角色移动操作
 		virtual inline void Jump();
 		virtual inline void RunLeft();
@@ -97,14 +101,14 @@ namespace IsaFrame::IsaSpriteFrame {
 		inline LONG Getvx() { return mCharavx; };
 		inline void ForceSetVx(LONG v) { mCharavx = v; return; };
 		inline POINT GetCenterPos();
+
+	protected:
+		void PlotPixel(DDSURFACEDESC2& ddsd, int x, int y, int r, int g = -1, int b = -1, int a = 0);
+		static void PlotPixel(Image& UImg, int x, int y, int r, int g = -1, int b = -1, int a = 0);
 		inline int GetDieState() { return mdie; };
 		inline void SetDieState(int state) { mdie = state; return; }
 		inline void ForceSetPos(LONG X, LONG Y) { mCharax = X; mCharay = Y; return; };
 		inline LONG GetStdVx() { return mStdvx; };
-
-	protected:
-		void PlotPixel(DDSURFACEDESC2& ddsd, int x, int y, int r, int g = -1, int b = -1, int a = 0);
-		static void PlotPixel(UvcImage& UImg, int x, int y, int r, int g = -1, int b = -1, int a = 0);
 
 
 

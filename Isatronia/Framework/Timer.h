@@ -1,16 +1,16 @@
 //***************************************************************************************
-// UvcTimer.h by Aaron Jsc (C) 2020 All Rights Reserved.
+// Timer.h by Aaron Jsc (C) 2020 All Rights Reserved.
 // licenced under CC BY-NC-SA License.
 //***************************************************************************************
 
 #pragma once
 #include<Windows.h>
 
-class UvcTimer
+class Timer
 {
 public:
 	// ine seconds
-	UvcTimer();
+	Timer();
 	__int64	TotalTIme();
 	__int64 DeltaTime();
 

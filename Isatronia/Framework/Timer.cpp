@@ -1,34 +1,34 @@
 //***************************************************************************************
-// UvcTimer.cpp by Aaron Jsc (C) 2020 All Rights Reserved.
+// Timer.cpp by Aaron Jsc (C) 2020 All Rights Reserved.
 // licenced under CC BY-NC-SA License.
 //***************************************************************************************
-#include "UvcTimer.h"
+#include "Timer.h"
 
-UvcTimer::UvcTimer() {
+Timer::Timer() {
 	mBaseTime = GetTickCount64();
 	return;
 }
 
 //return total time sence the Timer been setted up
-__int64 UvcTimer::TotalTIme()
+__int64 Timer::TotalTIme()
 {
 	// TODO: 在此处添加实现代码.
 	return GetTickCount64() - mBaseTime;
 }
 
-__int64 UvcTimer::DeltaTime()
+__int64 Timer::DeltaTime()
 {
 	// TODO: 在此处添加实现代码.
 	return GetTickCount64() - mPrevTime;
 }
 
-void UvcTimer::Reset()
+void Timer::Reset()
 {
 	// TODO: 在此处添加实现代码.
 	mBaseTime = GetTickCount64();
 }
 
-void UvcTimer::Start()
+void Timer::Start()
 {
 	// TODO: 在此处添加实现代码.
 	if (mStopped)
@@ -37,7 +37,7 @@ void UvcTimer::Start()
 	}
 }
 
-void UvcTimer::Stop()
+void Timer::Stop()
 {
 	// TODO: 在此处添加实现代码.
 	if (!mStopped)
@@ -46,12 +46,12 @@ void UvcTimer::Stop()
 	}
 }
 
-void UvcTimer::Sign()
+void Timer::Sign()
 {
 	mPrevTime = GetTickCount64();
 }
 
-void UvcTimer::FrameBegin()
+void Timer::FrameBegin()
 {
 	mTimeOfThisFrime = GetTickCount64();
 	return;
