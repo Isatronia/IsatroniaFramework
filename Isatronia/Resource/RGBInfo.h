@@ -11,30 +11,13 @@ namespace Isatronia::Resource {
 
 	public:
 		explicit RGBInfo(UCHAR R, UCHAR G, UCHAR B);
-		RGBInfo(const RGBInfo& info) noexcept : RGBInfo(info.r, info.g, info.b) {};
-		RGBInfo(const RGBInfo&& info) noexcept : RGBInfo(info.r, info.g, info.b) {};
-		RGBInfo() : RGBInfo(0, 0, 0) {};
+		RGBInfo(const RGBInfo&) noexcept;
+		RGBInfo(const RGBInfo&&) noexcept;
+		RGBInfo();
 
-		bool operator==(RGBInfo other) {
-			if (other.r == r && other.g == g && other.b == b) {
-				return true;
-			}
-			return false;
-		}
-
-		void operator=(RGBInfo& info) {
-			r = info.r;
-			g = info.g;
-			b = info.b;
-			return;
-		}
-
-		void operator=(RGBInfo&& info) noexcept {
-			r = info.r;
-			g = info.g;
-			b = info.b;
-			return;
-		}
+		virtual bool operator==(const RGBInfo&);
+		virtual void operator=(const RGBInfo&);
+		virtual void operator=(const RGBInfo&&) noexcept;
 	};
 
 	class RGBAInfo : public RGBInfo
@@ -42,24 +25,14 @@ namespace Isatronia::Resource {
 	public:
 		UCHAR a;
 	public:
-		explicit RGBAInfo(UCHAR R, UCHAR G, UCHAR B, UCHAR A) : RGBInfo(R, G, B), a(A) {};
-		RGBAInfo(const RGBAInfo& info) :RGBAInfo(info.r, info.g, info.b, info.a) {};
-		RGBAInfo(const RGBAInfo&& info) noexcept :RGBAInfo(info.r, info.g, info.b, info.a) {};
-		RGBAInfo() :RGBAInfo(0, 0, 0, 0) {};
+		explicit RGBAInfo(UCHAR R, UCHAR G, UCHAR B, UCHAR A);
+		RGBAInfo(const RGBAInfo&);
+		RGBAInfo(const RGBAInfo&&) noexcept;
+		RGBAInfo();
 
-		void operator=(RGBAInfo& info) {
-			r = info.r;
-			g = info.g;
-			b = info.b;
-			a = info.a;
-			return;
-		}
-		void operator=(RGBAInfo&& info) noexcept {
-			r = info.r;
-			g = info.g;
-			b = info.b;
-			a = info.a;
-			return;
-		}
+		virtual bool operator==(const RGBAInfo&);
+		virtual bool operator==(const RGBInfo&) override;
+		virtual void operator=(const RGBAInfo&);
+		virtual void operator=(const RGBAInfo&&) noexcept;
 	};
 }

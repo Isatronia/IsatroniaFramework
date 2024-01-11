@@ -19,7 +19,7 @@ using std::pair;
 
 
 //#define __POSTERR(str) {MessageBox(0, str, "Error", NULL);}
-//#define UvcDXInit_s(res, str) { if (FAILED(res)) {__POSTERR(str);return false; } }
+//#define DXInit_s(res, str) { if (FAILED(res)) {__POSTERR(str);return false; } }
 //#define InitDDStruct(dds) {memset(&dds, 0, sizeof(decltype(dds)); dds.dwsize = decltype(dds))}
 
 //#define __GAME_STATE_MENU__		0
@@ -63,9 +63,12 @@ public:
 
 
 
-int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hprevInstance,
-	PSTR cmdLine, int showcmd)
-{
+int APIENTRY WinMain(
+	_In_ HINSTANCE hInstance,
+	_In_opt_ HINSTANCE hprevInstance,
+	_In_ LPSTR cmdLine,
+	_In_ int showcmd
+){
 	using std::ifstream;
 
 	// buffer String
@@ -129,8 +132,10 @@ void TestApp::Update(const Timer& Timer)
 	//if (!ShowDebugInfo)	return;
 	if (FAILED(mlpDDSurefacePrimary->GetDC(&hdc)))
 	{
-		__POSTERR("DC get ERR")
-			return;
+		Exception* e = new Exception(L"DC get ERR");
+		e->showExceptionDialog();
+		delete e;
+		return;
 	}
 	old_fcol = SetTextColor(hdc, RGB(255, 255, 255));
 	old_bcol = SetBkColor(hdc, RGB(0, 0, 0));
@@ -152,8 +157,10 @@ void TestApp::Update(const Timer& Timer)
 	SetBkMode(hdc, old_tmode);
 	if (FAILED(mlpDDSurefacePrimary->ReleaseDC(hdc)))
 	{
-		__POSTERR("DC release ERR")
-			return;
+		Exception* e = new Exception(L"DC release ERR");
+		e->showExceptionDialog();
+		delete e;
+		return;
 	}
 
 	return;

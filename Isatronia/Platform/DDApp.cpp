@@ -1,10 +1,20 @@
 #include "DDApp.h"
+
+#include "../../libs/dxerr.h"
 #include "../Resource/RGBInfo.h"
+#include "../Framework/Macro.h"
+
 
 namespace Isatronia::Windows {
 
 	using Isatronia::Resource::RGBInfo;
 	using Isatronia::Resource::RGBAInfo;
+
+	template<typename T>
+	void InitializeWithZero(T& obj) {
+		memset(&obj, 0, sizeof(obj));
+		return;
+	}
 
 	LRESULT CALLBACK
 		DDAppMainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -43,8 +53,8 @@ namespace Isatronia::Windows {
 	void DDApp::Update(const Timer& Timer) {
 		// TODO: 在此处添加实现代码.
 		RECT destRect, srcRect;
-		__ZEROMEM(destRect);
-		__ZEROMEM(srcRect);
+		InitializeWithZero(destRect);
+		InitializeWithZero(srcRect);
 
 		destRect.top = 0;
 		destRect.bottom = mClientHeight;
@@ -109,7 +119,7 @@ namespace Isatronia::Windows {
 		}
 
 		// Attach Clipper
-		UvcDXInit_s(
+		DXInit_s(
 			mDD7->CreateClipper(0, &lpddClipper, NULL),
 			"Clipper Attach falied");
 
@@ -203,12 +213,12 @@ namespace Isatronia::Windows {
 		}
 		else
 		{
-			UvcDXInit_s(
+			DXInit_s(
 				mDD7->SetCooperativeLevel(mhMainWnd, DDSCL_NORMAL),
 				"Set Coop Level Failed.");
 		}
 
-		UvcDXInit_s(
+		DXInit_s(
 			mDD7->SetDisplayMode(mClientWidth, mClientHeight, mClientBPP, 0, 0),
 			"SetDisplayMode Error"
 		);
@@ -236,7 +246,7 @@ namespace Isatronia::Windows {
 			mDDSD.dwFlags = DDSD_CAPS;
 			mDDSD.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
 
-			UvcDXInit_s(
+			DXInit_s(
 				mDD7->CreateSurface(&mDDSD, &mlpDDSurefacePrimary, NULL),
 				"Primary Surface Creat Failed");
 
@@ -247,7 +257,7 @@ namespace Isatronia::Windows {
 			mDDSD.dwHeight = mClientHeight;
 			mDDSD.dwWidth = mClientWidth;
 
-			UvcDXInit_s(
+			DXInit_s(
 				mDD7->CreateSurface(&mDDSD, &mlpDDSurefaceBackBuffer, NULL),
 				"Back Buffer Surface Creat Failed"
 			);
@@ -272,7 +282,7 @@ namespace Isatronia::Windows {
 
 		mDDSD.ddsCaps.dwCaps = DDSCAPS_BACKBUFFER;
 
-		UvcDXInit_s(
+		DXInit_s(
 			mlpDDSurefacePrimary->GetAttachedSurface(&mDDSD.ddsCaps, &mlpDDSurefaceBackBuffer),
 			"Back Buffer Surface Creat Failed"
 		);

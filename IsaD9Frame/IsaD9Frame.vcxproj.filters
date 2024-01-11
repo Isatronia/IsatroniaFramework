@@ -9,12 +9,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\libs">
-      <UniqueIdentifier>{788f9887-abf1-45e4-9926-77e27c07b696}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="I18N">
-      <UniqueIdentifier>{f57d1833-0a17-4f1a-b295-af9d2dd6f5af}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Dependences">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -40,11 +34,11 @@
     <Filter Include="Dependences\Isatronia\Exceptions">
       <UniqueIdentifier>{425986b7-3172-43ad-b2b2-c339ba0ac369}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependences\Isatronia\I18N">
+      <UniqueIdentifier>{f57d1833-0a17-4f1a-b295-af9d2dd6f5af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\libs\dxerr.cpp">
-      <Filter>Source Files\libs</Filter>
-    </ClCompile>
     <ClCompile Include="..\Isatronia\Framework\Timer.cpp">
       <Filter>Dependences\Isatronia\Framework</Filter>
     </ClCompile>
@@ -74,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="..\Isatronia\Resource\Resource.cpp">
       <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\dxerr.cpp">
+      <Filter>Dependences\libs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

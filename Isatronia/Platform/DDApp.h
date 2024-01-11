@@ -1,9 +1,17 @@
 #pragma once
 
 #include "App.h"
+
+#include <ddraw.h>
+
+
 #include "../Exceptions/Exception.h"
 #include "../Resource/Image.h"
 #include "../Resource/RGBInfo.h"
+
+
+#pragma comment(lib,"ddraw.lib")
+#pragma comment(lib, "dxguid.lib")
 
 namespace Isatronia::Windows {
 	using namespace Isatronia::Exception;

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <exception>
 #include <Windows.h>
 
 //#define __POSTERR(str) {MessageBox(0, str, L"Error", NULL);}
@@ -12,7 +13,7 @@ namespace Isatronia::Exception {
 	//--------------------------------------------------
 	// Base Exception
 	//--------------------------------------------------
-	class Exception {
+	class Exception: public std::exception {
 	private:
 		wstring mExceptionInfo;
 
