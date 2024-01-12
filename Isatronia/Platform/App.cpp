@@ -7,7 +7,7 @@
 
 #include "App.h"
 #include "../Exceptions/Exception.h"
-#include "../../libs/dxerr.cpp"
+#include "../../libs/dxerr.h"
 
 
 
