@@ -21,6 +21,7 @@ namespace Isatronia::Resource {
 	// Constructors
 	// ---------------------------------------------------
 	Image::Image() {
+		
 		setImageDimension(POINT{ 0 ,0 });
 		setColorDepth(0);
 		setImage(nullptr);

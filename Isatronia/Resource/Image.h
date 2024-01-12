@@ -15,13 +15,14 @@
 
 namespace Isatronia::Resource {
 
-	class Image
+	class Image: public Resource
 	{
 	private:
 		// Image Size.
 		POINT mImageDimension;
 		// The memory where Image stored.
 		UCHAR* mBuffer;
+		
 		// total size of image, save for later.
 		int mBitCnt;
 		// col dip
@@ -30,7 +31,7 @@ namespace Isatronia::Resource {
 	public:
 		// This constructor will give u a empty Image.
 		Image();
-		~Image();
+		virtual ~Image();
 
 		// load image from file.
 		virtual void loadImage(const char* fileName) = 0;

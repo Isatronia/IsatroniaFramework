@@ -326,7 +326,7 @@ namespace Isatronia::Windows {
 			bufferFor16bit[x + (y * (int)(ddsd.lPitch >> 1))] = pixelFor16BIT;
 		}
 		break;
-		// __RGB 24BIT mode
+		// __RGB24BIT mode
 		case 24:
 		{
 			pixelFor32Bit = __RGB32BIT(0, r, g, b);

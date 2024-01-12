@@ -72,6 +72,12 @@
     <ClCompile Include="..\libs\dxerr.cpp">
       <Filter>Dependences\libs</Filter>
     </ClCompile>
+    <ClCompile Include="..\Isatronia\Framework\Job.cpp">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\dxerr.h">
@@ -112,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="..\Isatronia\Resource\RGBInfo.h">
       <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Isatronia\Framework\Job.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

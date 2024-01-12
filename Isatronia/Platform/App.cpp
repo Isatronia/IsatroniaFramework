@@ -1,5 +1,5 @@
 //***************************************************************************************
-// App.cpp by Aaron Jsc (C) 2020 All Rights Reserved.
+// App.cpp by Ishgrina (C) 2024 All Rights Reserved.
 // licenced under CC BY-NC-SA License.
 //***************************************************************************************
 
