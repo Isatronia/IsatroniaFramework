@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: Sprite.h
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include <vector>
 
 #include "../Resource/Image.h"
@@ -5,7 +11,7 @@
 
 namespace Isatronia::Sprite {
 	using std::vector;
-	enum spriteState {
+	enum class spriteState {
 		die,
 	};
 
@@ -104,13 +110,13 @@ namespace Isatronia::Sprite {
 
 	protected:
 		void PlotPixel(DDSURFACEDESC2& ddsd, int x, int y, int r, int g = -1, int b = -1, int a = 0);
-		static void PlotPixel(Image& UImg, int x, int y, int r, int g = -1, int b = -1, int a = 0);
-		inline int GetDieState() { return mdie; };
-		inline void SetDieState(int state) { mdie = state; return; }
+		//static void PlotPixel(Image& UImg, int x, int y, int r, int g = -1, int b = -1, int a = 0);
 		inline void ForceSetPos(LONG X, LONG Y) { mCharax = X; mCharay = Y; return; };
-		inline LONG GetStdVx() { return mStdvx; };
 
 
+		//inline LONG GetStdVx() { return mStdvx; };
+		//inline int GetDieState() { return mdie; };
+		//inline void SetDieState(int state) { mdie = state; return; }
 
 	};
 }

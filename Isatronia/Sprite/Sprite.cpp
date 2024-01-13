@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: Sprite.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "Sprite.h"
 #include "../Framework/Timer.h"
 #include "../Resource/Image.h"
@@ -6,6 +12,7 @@
 namespace Isatronia::Sprite {
 
 	using namespace Isatronia::Framework;
+	using namespace Isatronia::Resource;
 
 	Sprite::Sprite()
 	{
@@ -63,7 +70,7 @@ namespace Isatronia::Sprite {
 				return lAnim[0];
 		}
 		return UvcImage();*/
-		return new BitMap();
+		return new Bitmap();
 	}
 
 	inline void Sprite::Jump()

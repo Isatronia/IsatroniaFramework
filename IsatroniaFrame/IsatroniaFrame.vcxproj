@@ -164,7 +164,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Isatronia\*.cpp" />
     <ClCompile Include="..\Isatronia\**\*.cpp" />
+    <!--<ClCompile Include="..\Isatronia\**\**\*.cpp" />-->
     <!--<ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
     <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp" />
     <ClCompile Include="..\Isatronia\Framework\Job.cpp" />
@@ -180,7 +182,24 @@
     <ClCompile Include="..\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Isatronia\**\*.h" />
+    <ClCompile Include="..\Isatronia\*.h" />
+    <ClCompile Include="..\Isatronia\Exceptions\Exception.h" />
+    <ClCompile Include="..\Isatronia\Exceptions\ImageException.h" />
+    <ClCompile Include="..\Isatronia\Framework\Job.h" />
+    <ClCompile Include="..\Isatronia\Framework\Macro.h" />
+    <ClCompile Include="..\Isatronia\Framework\Timer.h" />
+    <ClCompile Include="..\Isatronia\Framework\Utils.h" />
+    <ClCompile Include="..\Isatronia\Platform\App.h" />
+    <ClCompile Include="..\Isatronia\Platform\DDApp.h" />
+    <ClCompile Include="..\Isatronia\Resource\Animation.h" />
+    <ClCompile Include="..\Isatronia\Resource\BitMap.h" />
+    <ClCompile Include="..\Isatronia\Resource\Image.h" />
+    <ClCompile Include="..\Isatronia\Resource\Resource.h" />
+    <ClCompile Include="..\Isatronia\Resource\ResourceFactory.h" />
+    <ClCompile Include="..\Isatronia\Resource\RGBInfo.h" />
+    <ClCompile Include="..\Isatronia\Sprite\Sprite.h" />
+    <ClInclude Include="..\Isatronia\I18N\I18n.h" />
+    <!--<ClCompile Include="..\Isatronia\**\**\*.h" />-->
     <!--<ClInclude Include="..\Isatronia\Exceptions\Exception.h" />
     <ClInclude Include="..\Isatronia\Exceptions\IsaImageException.h" />
     <ClInclude Include="..\Isatronia\Framework\IsaUtils.h" />
@@ -195,6 +214,9 @@
     <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h" />
     <ClInclude Include="..\Isatronia\Resource\RGBInfo.h" />-->
     <ClInclude Include="..\libs\dxerr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Isatronia.licenseheader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
