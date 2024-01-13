@@ -1,5 +1,12 @@
+//--------------------------------------------------------------------------------------
+// File: Bitmap.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "BitMap.h"
 
+#include "../Framework/IsaUtils.h"
 #include "../Exceptions/Exception.h"
 #include "../Exceptions/ImageException.h"
 

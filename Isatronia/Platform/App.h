@@ -1,8 +1,9 @@
-//***************************************************************************************
-// App.h by Aaron Jsc (C) 2020 All Rights Reserved.
-// licenced under CC BY-NC-SA License.
-//***************************************************************************************
-
+//--------------------------------------------------------------------------------------
+// File: App.h
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #pragma once
 
 
@@ -27,7 +28,7 @@ using namespace Isatronia::Exception;
 
 // Here is Class definiation
 namespace Isatronia::Windows {
-
+	using namespace Isatronia::Framework;
 
 	class App
 	{

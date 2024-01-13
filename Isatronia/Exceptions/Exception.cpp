@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: Exception.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "Exception.h"
 
 namespace Isatronia::Exception {

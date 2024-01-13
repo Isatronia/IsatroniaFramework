@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: IsaUtils.h
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include <Windows.h>
 
 #define __RGB32BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) + ((a) << 24))

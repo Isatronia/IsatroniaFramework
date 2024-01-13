@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: Image.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "Image.h"
 
 //#define __POSTERR(str) {MessageBoxA(0, str, L"Error", NULL);}

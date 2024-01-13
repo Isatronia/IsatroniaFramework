@@ -3,7 +3,7 @@
 #include "../Resource/Image.h"
 #include "../Resource/Animation.h"
 
-namespace IsaFrame::IsaSpriteFrame {
+namespace Isatronia::Sprite {
 	using std::vector;
 	enum spriteState {
 		die,

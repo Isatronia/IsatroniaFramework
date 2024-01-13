@@ -1,45 +1,51 @@
 #include "Sprite.h"
+#include "../Framework/Timer.h"
+#include "../Resource/Image.h"
 #include "../Resource/BitMap.h"
-namespace IsaFrame::IsaSpriteFrame {
+#include "../Resource/BitMap.h"
+namespace Isatronia::Sprite {
+
+	using namespace Isatronia::Framework;
+
 	Sprite::Sprite()
 	{
-		memset(&mHitBox, 0, sizeof(RECT));
+		//memset(&mHitBox, 0, sizeof(RECT));
 
-		mCharax = 0;
-		mCharay = 0;
-		mCharavx = 0;
-		mCharavy = 0;
-		mStdvx = 20;
+		//mCharax = 0;
+		//mCharay = 0;
+		//mCharavx = 0;
+		//mCharavy = 0;
+		//mStdvx = 20;
 
-		mAnimIndex = 0;
-		mAnimIndexAddCount = 0;
-		mJumpTimes = 2;
+		//mAnimIndex = 0;
+		//mAnimIndexAddCount = 0;
+		//mJumpTimes = 2;
 
-		mdie = 0;
-		mfaceRight = true;
-		mFall = false;
+		//mdie = 0;
+		//mfaceRight = true;
+		//mFall = false;
 
-		LastFireTick = 0;
-		mFire = false;
+		//LastFireTick = 0;
+		//mFire = false;
 
-		mAtk = 10;
-		mHp = 100;
+		//mAtk = 10;
+		//mHp = 100;
 		return;
 	}
 
 	Sprite::Sprite(int CharaX, int CharaY) :Sprite()
 	{
-		mCharax = CharaX;
-		mCharay = CharaY;
-		mCharavx = 0;
-		mCharavy = 0;
+		//mCharax = CharaX;
+		//mCharay = CharaY;
+		//mCharavx = 0;
+		//mCharavy = 0;
 
-		mfaceRight = true;
-		mFall = false;
+		//mfaceRight = true;
+		//mFall = false;
 		return;
 	}
 
-	UvcImage* Sprite::getCurrentImage()
+	Image* Sprite::getCurrentImage()
 	{
 		// TODO: 在此处插入 return 语句
 		/*if (mfaceRight)
@@ -57,7 +63,7 @@ namespace IsaFrame::IsaSpriteFrame {
 				return lAnim[0];
 		}
 		return UvcImage();*/
-		return new IsaBitMap();
+		return new BitMap();
 	}
 
 	inline void Sprite::Jump()

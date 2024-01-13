@@ -164,7 +164,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
+    <ClCompile Include="..\Isatronia\**\*.cpp" />
+    <!--<ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
     <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp" />
     <ClCompile Include="..\Isatronia\Framework\Job.cpp" />
     <ClCompile Include="..\Isatronia\Framework\Timer.cpp" />
@@ -174,12 +175,13 @@
     <ClCompile Include="..\Isatronia\Resource\Image.cpp" />
     <ClCompile Include="..\Isatronia\Resource\Animation.cpp" />
     <ClCompile Include="..\Isatronia\Resource\Resource.cpp" />
-    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />-->
     <ClCompile Include="..\libs\dxerr.cpp" />
     <ClCompile Include="..\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Isatronia\Exceptions\Exception.h" />
+    <ClInclude Include="..\Isatronia\**\*.h" />
+    <!--<ClInclude Include="..\Isatronia\Exceptions\Exception.h" />
     <ClInclude Include="..\Isatronia\Exceptions\IsaImageException.h" />
     <ClInclude Include="..\Isatronia\Framework\IsaUtils.h" />
     <ClInclude Include="..\Isatronia\Framework\Job.h" />
@@ -191,7 +193,7 @@
     <ClInclude Include="..\Isatronia\Resource\Animation.h" />
     <ClInclude Include="..\Isatronia\Resource\Resource.h" />
     <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h" />
-    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h" />
+    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h" />-->
     <ClInclude Include="..\libs\dxerr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

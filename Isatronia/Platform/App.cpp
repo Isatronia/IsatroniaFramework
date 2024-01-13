@@ -1,10 +1,9 @@
-//***************************************************************************************
-// App.cpp by Ishgrina (C) 2024 All Rights Reserved.
-// licenced under CC BY-NC-SA License.
-//***************************************************************************************
-
-
-
+//--------------------------------------------------------------------------------------
+// File: App.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "App.h"
 #include "../Exceptions/Exception.h"
 #include "../../libs/dxerr.h"

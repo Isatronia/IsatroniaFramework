@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: RGBInfo.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "RGBInfo.h"
 
 namespace Isatronia::Resource {

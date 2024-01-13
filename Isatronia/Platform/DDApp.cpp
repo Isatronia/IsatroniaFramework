@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: DDApp.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "DDApp.h"
 
 #include "../../libs/dxerr.h"

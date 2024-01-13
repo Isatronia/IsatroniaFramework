@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: BitMap.h
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #pragma once
 
 #include <Windows.h>

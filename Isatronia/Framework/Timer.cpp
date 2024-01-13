@@ -1,58 +1,64 @@
-//***************************************************************************************
-// Timer.cpp by Aaron Jsc (C) 2020 All Rights Reserved.
-// licenced under CC BY-NC-SA License.
-//***************************************************************************************
+//--------------------------------------------------------------------------------------
+// File: Timer.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "Timer.h"
 
-Timer::Timer() {
-	mBaseTime = GetTickCount64();
-	return;
-}
-
-//return total time sence the Timer been setted up
-__int64 Timer::TotalTIme()
+namespace Isatronia::Framework
 {
-	// TODO: 在此处添加实现代码.
-	return GetTickCount64() - mBaseTime;
-}
-
-__int64 Timer::DeltaTime()
-{
-	// TODO: 在此处添加实现代码.
-	return GetTickCount64() - mPrevTime;
-}
-
-void Timer::Reset()
-{
-	// TODO: 在此处添加实现代码.
-	mBaseTime = GetTickCount64();
-}
-
-void Timer::Start()
-{
-	// TODO: 在此处添加实现代码.
-	if (mStopped)
+	Timer::Timer()
 	{
-		mStopped = false;
+		mBaseTime = GetTickCount64();
+		return;
 	}
-}
 
-void Timer::Stop()
-{
-	// TODO: 在此处添加实现代码.
-	if (!mStopped)
+	//return total time sence the Timer been setted up
+	__int64 Timer::TotalTIme()
 	{
-		mStopped = true;
+		// TODO: 在此处添加实现代码.
+		return GetTickCount64() - mBaseTime;
 	}
-}
 
-void Timer::Sign()
-{
-	mPrevTime = GetTickCount64();
-}
+	__int64 Timer::DeltaTime()
+	{
+		// TODO: 在此处添加实现代码.
+		return GetTickCount64() - mPrevTime;
+	}
 
-void Timer::FrameBegin()
-{
-	mTimeOfThisFrime = GetTickCount64();
-	return;
+	void Timer::Reset()
+	{
+		// TODO: 在此处添加实现代码.
+		mBaseTime = GetTickCount64();
+	}
+
+	void Timer::Start()
+	{
+		// TODO: 在此处添加实现代码.
+		if ( mStopped )
+		{
+			mStopped = false;
+		}
+	}
+
+	void Timer::Stop()
+	{
+		// TODO: 在此处添加实现代码.
+		if ( !mStopped )
+		{
+			mStopped = true;
+		}
+	}
+
+	void Timer::Sign()
+	{
+		mPrevTime = GetTickCount64();
+	}
+
+	void Timer::FrameBegin()
+	{
+		mTimeOfThisFrime = GetTickCount64();
+		return;
+	}
 }

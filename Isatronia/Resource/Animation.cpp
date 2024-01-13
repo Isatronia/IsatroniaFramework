@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: Animation.cpp
+//
+// Copyright (c) Ishgrina. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
 #include "Animation.h"
 
 namespace Isatronia::Resource {
