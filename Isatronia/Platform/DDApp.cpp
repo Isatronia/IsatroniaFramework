@@ -6,7 +6,7 @@
 //--------------------------------------------------------------------------------------
 #include "DDApp.h"
 
-#include "../../libs/dxerr.h"
+//#include "../../libs/dxerr.h"
 #include "../Resource/RGBInfo.h"
 #include "../Framework/Macro.h"
 
@@ -281,8 +281,8 @@ namespace Isatronia::Windows {
 
 		if (FAILED(debug = mDD7->CreateSurface(&mDDSD, &mlpDDSurefacePrimary, NULL)))
 		{
-			//__POSTERR("Primery Surface Creat Failed");
-			DXTrace(__FILEW__, __LINE__, debug, NULL, TRUE);
+			__POSTERR("Primery Surface Creat Failed");
+			//DXTrace(__FILEW__, __LINE__, debug, NULL, TRUE);
 			return false;
 		}
 

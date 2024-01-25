@@ -15,7 +15,7 @@ namespace Isatronia::I18N {
 	using namespace std;
 
 	enum class DisplayLanguage {
-		English_US,
+		English,
 		Chinese_Simplifieded,
 	};
 
@@ -31,13 +31,14 @@ namespace Isatronia::I18N {
 	class CoreDict
 	{
 	private:
-		map<wstring, wstring> mDict;
+		static map<wstring, wstring>* mDict;
 	//---------------------------------------
 	// Methods
 	//---------------------------------------
 	private:
 		void loadDictFromeLocal(wstring);
 	public:
+		CoreDict();
 		wstring getStringByKey(wstring key);
 	};
 

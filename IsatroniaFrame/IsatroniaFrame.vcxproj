@@ -178,7 +178,6 @@
     <ClCompile Include="..\Isatronia\Resource\Animation.cpp" />
     <ClCompile Include="..\Isatronia\Resource\Resource.cpp" />
     <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />-->
-    <ClCompile Include="..\libs\dxerr.cpp" />
     <ClCompile Include="..\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -213,7 +212,6 @@
     <ClInclude Include="..\Isatronia\Resource\Resource.h" />
     <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h" />
     <ClInclude Include="..\Isatronia\Resource\RGBInfo.h" />-->
-    <ClInclude Include="..\libs\dxerr.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Isatronia.licenseheader" />

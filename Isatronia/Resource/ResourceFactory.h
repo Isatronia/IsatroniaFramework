@@ -19,10 +19,3 @@ namespace Isatronia::Resource {
 
 	ResourceFactory* ResourceFactory::mFactory = nullptr;
 }
-
-int a(int, int);
-
-int a(int b, int c) {
-	b = c;
-	return;
-}

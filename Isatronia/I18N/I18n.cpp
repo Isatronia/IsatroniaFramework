@@ -35,6 +35,14 @@ namespace Isatronia::I18N
 	//-------------------------------------------------------------------------------
 	// CoreDict
 	//-------------------------------------------------------------------------------
+	CoreDict::CoreDict()
+	{
+		if ( CoreDict::mDict != nullptr )
+		{
+			CoreDict::mDict = new map<wstring, wstring>();
+		}
+		return;
+	}
 	void CoreDict::loadDictFromeLocal(wstring dictFilePath)
 	{
 		return;

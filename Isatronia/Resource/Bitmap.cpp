@@ -6,11 +6,12 @@
 //--------------------------------------------------------------------------------------
 #include "BitMap.h"
 
-#include "../Framework/IsaUtils.h"
+#include "../Framework/Utils.h"
 #include "../Exceptions/Exception.h"
 #include "../Exceptions/ImageException.h"
 
 namespace Isatronia::Resource {
+	using namespace Isatronia::Framework;
 	using namespace Isatronia::Exception;
 
 	Bitmap::Bitmap() : Image()
