@@ -22,4 +22,9 @@ namespace Isatronia::Resource {
 		this->mAnimClip = clip;
 		return;
 	}
+
+	Image* Animation::getCurrentImage()
+	{
+		return mAnimClip[mCurrentIndex++];
+	}
 }

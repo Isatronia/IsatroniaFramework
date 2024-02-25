@@ -5,12 +5,18 @@
 // Licensed under the MIT License.
 //--------------------------------------------------------------------------------------
 #include <iostream>
-
-namespace Isatronia::Framework{
-
+#include <thread>
+#include <concepts>
+namespace Isatronia::Framework
+{
 	class Job
 	{
-
+	private:
+		std::jthread* job = nullptr;
+	public:
+		Job(std::jthread* thread);
 	};
 
+	template<std::invocable F>
+	void AddJob(F func);
 }

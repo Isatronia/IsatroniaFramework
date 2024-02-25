@@ -13,34 +13,23 @@ namespace Isatronia::Exception
 	//----------------------------------------------------
 	// ImageException
 	//----------------------------------------------------
-	ImageException::ImageException(wstring desc, wstring ImagePath)
-		:FileException(desc, ImagePath)
+	ImageException::ImageException(std::string Description)
+		:std::exception(Description.c_str())
 	{
 		return;
-	};
+	}
 
-	ImageException::ImageException(wstring desc)
-		:FileException(desc, L"**File Path Not Contained**")
+	void ImageException::showErrorDialog()
 	{
-
+		ShowErrorDialog(this->what());
+		return;
 	}
 
 	//----------------------------------------------------
 	// BitmapFlipException
 	//----------------------------------------------------
-	BitmapFlipException::BitmapFlipException(wstring ExceptionDescription, wstring ImagePath)
-		:ImageException(ExceptionDescription, ImagePath)
-	{
-		return;
-	}
-
-	BitmapFlipException::BitmapFlipException(wstring ImagePath) :ImageException(L"Bitmap Flip Error")
-	{
-		setFilePath(ImagePath);
-		return;
-	}
-	
-	BitmapFlipException::BitmapFlipException(): ImageException(L"Bitmap Flip Function Throwed an Exception.")
+	BitmapFlipException::BitmapFlipException(string Description)
+		:ImageException(Description)
 	{
 		return;
 	}

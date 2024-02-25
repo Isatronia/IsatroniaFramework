@@ -8,22 +8,22 @@
 #include <iostream>
 #include "./Exception.h"
 
-namespace Isatronia::Exception {
-
+namespace Isatronia::Exception
+{
 	using std::wstring;
+	using std::string;
 
-	class ImageException : public FileException {
+	class ImageException : public std::exception
+	{
 	public:
-
-		ImageException(wstring, wstring);
-		ImageException(wstring);
+		ImageException(string Description);
+	public:
+		virtual void showErrorDialog();
 	};
 
 	class BitmapFlipException : public ImageException
 	{
 	public:
-		BitmapFlipException(wstring ExceptionDescription, wstring ImagePath);
-		BitmapFlipException(wstring ImagePath);
-		BitmapFlipException();
+		BitmapFlipException(string Description);
 	};
 }

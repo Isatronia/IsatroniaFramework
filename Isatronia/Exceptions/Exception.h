@@ -12,49 +12,28 @@
 
 //#define __POSTERR(str) {MessageBox(0, str, L"Error", NULL);}
 
-namespace Isatronia::Exception {
-	
+namespace Isatronia::Exception
+{
 	using std::wstring;
+	using std::string;
+	//--------------------------------------------------
+	// Utils
+	//--------------------------------------------------
+	void ShowErrorDialog(std::string msg, std::string title = "Error");
+	void ShowErrorDialog(const char* msg, const char* title = "Error");
+	void ShowErrorDialog(std::wstring msg, std::wstring title = L"Error");
 
 	//--------------------------------------------------
 	// Base Exception
 	//--------------------------------------------------
-	class Exception: public std::exception {
-	private:
-		wstring mExceptionInfo;
-
+	class Exception : public std::exception
+	{
 	public:
 		Exception() = delete;
-		Exception(wstring info);
+		Exception(string Description);
 
-		virtual wstring getExceptionInfo();
-
-		virtual void showExceptionDialog(bool fatal = false);
-	protected:
-		void setExceptionInfo(wstring ExceptionInfo);
+		virtual void showErrorDialog(bool fatal = false);
 	};
-
-	class FileException : public Exception
-	{
-	private:
-		wstring mFilePath;
-	public:
-		FileException(wstring desc, wstring path);
-
-		wstring getFilePath();
-		void setFilePath(wstring path);
-
-		virtual void showExceptionDialog(bool fatal = false)override;
-	};
-
-	class RuntimeException : public Exception
-	{
-	public:
-		RuntimeException(wstring ExceptionInfo);
-		RuntimeException(const wchar_t* ExceptionInfo);
-	};
-
-
 	//template<typename T>
 	//class ArrayIndexOutOfBoundException : public Exception
 	//{

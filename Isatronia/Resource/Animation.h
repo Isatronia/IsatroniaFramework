@@ -9,11 +9,13 @@
 
 #include "Image.h"
 
-namespace Isatronia::Resource {
-
-	class Animation {
+namespace Isatronia::Resource
+{
+	class Animation
+	{
 	private:
 		std::vector<Image*> mAnimClip;
+		int mCurrentIndex;
 
 	public:
 		Animation();
@@ -21,6 +23,7 @@ namespace Isatronia::Resource {
 	public:
 		std::vector<Image*> getClip();
 		void setClip(std::vector<Image*> clip);
-	};
 
+		Image* getCurrentImage();
+	};
 }
