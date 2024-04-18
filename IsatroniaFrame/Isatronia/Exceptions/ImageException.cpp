@@ -13,24 +13,10 @@ namespace Isatronia::Exception
 	//----------------------------------------------------
 	// ImageException
 	//----------------------------------------------------
-	ImageException::ImageException(std::string Description)
-		:std::exception(Description.c_str())
-	{
-		return;
-	}
-
-	void ImageException::showErrorDialog()
-	{
-		ShowErrorDialog(this->what());
-		return;
-	}
+	
 
 	//----------------------------------------------------
 	// BitmapFlipException
 	//----------------------------------------------------
-	BitmapFlipException::BitmapFlipException(string Description)
-		:ImageException(Description)
-	{
-		return;
-	}
+	
 }

@@ -5,8 +5,8 @@
 // Licensed under the MIT License.
 //--------------------------------------------------------------------------------------
 #include "App.h"
-#include "../Exceptions/Exception.h"
-#include "../../libs/dxerr.h"
+#include "Exception.h"
+#include "RuntimeException.h"
 
 
 
@@ -174,7 +174,7 @@ namespace Isatronia::Windows {
 		if (!InitMainWindow())
 		{
 			MessageBoxA(0, "InitWindow Failed.", "", MB_OK);
-			throw(new RuntimeException(L"InitWindow Failed."));
+			throw(new RuntimeException("InitWindow Failed."));
 			return;
 		}
 		OnResize();

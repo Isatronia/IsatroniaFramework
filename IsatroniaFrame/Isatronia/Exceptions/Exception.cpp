@@ -36,6 +36,16 @@ namespace Isatronia::Exception
 		return;
 	}
 
+	Exception::Exception(const char*& Description) : exception(Description)
+	{
+		return;
+	}
+
+	Exception::Exception(const char*  Description): exception(Description)
+	{
+
+	}
+
 	void Exception::showErrorDialog(bool fatal)
 	{
 		ShowErrorDialog(this->what());

@@ -85,6 +85,11 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)Isatronia\Exceptions\;$(ProjectDir)Isatronia\Framework\;$(ProjectDir)Isatronia\I18n\;$(ProjectDir)Isatronia\Platform\;$(ProjectDir)Isatronia\Resource\;$(ProjectDir)Isatronia\Sprite\;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -164,10 +169,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Isatronia\*.cpp" />
-    <ClCompile Include="..\Isatronia\**\*.cpp" />
+    <ClCompile Include=".\Isatronia\*.cpp" />
+    <ClCompile Include=".\Isatronia\**\*.cpp" />
     <!--<ClCompile Include="..\Isatronia\**\**\*.cpp" />-->
-    <!--<ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
+    <!--
+    <ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
     <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp" />
     <ClCompile Include="..\Isatronia\Framework\Job.cpp" />
     <ClCompile Include="..\Isatronia\Framework\Timer.cpp" />
@@ -177,41 +183,13 @@
     <ClCompile Include="..\Isatronia\Resource\Image.cpp" />
     <ClCompile Include="..\Isatronia\Resource\Animation.cpp" />
     <ClCompile Include="..\Isatronia\Resource\Resource.cpp" />
-    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />-->
+    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />
     <ClCompile Include="..\Main.cpp" />
+    -->
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Isatronia\*.h" />
-    <ClCompile Include="..\Isatronia\Exceptions\Exception.h" />
-    <ClCompile Include="..\Isatronia\Exceptions\ImageException.h" />
-    <ClCompile Include="..\Isatronia\Framework\Job.h" />
-    <ClCompile Include="..\Isatronia\Framework\Macro.h" />
-    <ClCompile Include="..\Isatronia\Framework\Timer.h" />
-    <ClCompile Include="..\Isatronia\Framework\Utils.h" />
-    <ClCompile Include="..\Isatronia\Platform\App.h" />
-    <ClCompile Include="..\Isatronia\Platform\DDApp.h" />
-    <ClCompile Include="..\Isatronia\Resource\Animation.h" />
-    <ClCompile Include="..\Isatronia\Resource\BitMap.h" />
-    <ClCompile Include="..\Isatronia\Resource\Image.h" />
-    <ClCompile Include="..\Isatronia\Resource\Resource.h" />
-    <ClCompile Include="..\Isatronia\Resource\ResourceFactory.h" />
-    <ClCompile Include="..\Isatronia\Resource\RGBInfo.h" />
-    <ClCompile Include="..\Isatronia\Sprite\Sprite.h" />
-    <ClInclude Include="..\Isatronia\I18N\I18n.h" />
-    <!--<ClCompile Include="..\Isatronia\**\**\*.h" />-->
-    <!--<ClInclude Include="..\Isatronia\Exceptions\Exception.h" />
-    <ClInclude Include="..\Isatronia\Exceptions\IsaImageException.h" />
-    <ClInclude Include="..\Isatronia\Framework\IsaUtils.h" />
-    <ClInclude Include="..\Isatronia\Framework\Job.h" />
-    <ClInclude Include="..\Isatronia\Framework\Timer.h" />
-    <ClInclude Include="..\Isatronia\Platform\App.h" />
-    <ClInclude Include="..\Isatronia\Platform\DDApp.h" />
-    <ClInclude Include="..\Isatronia\Resource\BitMap.h" />
-    <ClInclude Include="..\Isatronia\Resource\Image.h" />
-    <ClInclude Include="..\Isatronia\Resource\Animation.h" />
-    <ClInclude Include="..\Isatronia\Resource\Resource.h" />
-    <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h" />
-    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h" />-->
+    <ClCompile Include=".\Isatronia\*.h" />
+    <ClCompile Include=".\Isatronia\**\*.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Isatronia.licenseheader" />

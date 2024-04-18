@@ -1,5 +1,6 @@
 #include "Sprite.h"
-#include "../Exceptions/Exception.h"
+#include "Exception.h"
+#include "RuntimeException.h"
 
 namespace Isatronia::Sprite
 {
@@ -24,8 +25,8 @@ namespace Isatronia::Sprite
 		}
 		catch ( ... )
 		{
-			throw new RuntimeException(L"Animation Index not included");
+			throw new RuntimeException("Animation Index not included");
 		}
-		return;
+		return nullptr;
 	}
 }

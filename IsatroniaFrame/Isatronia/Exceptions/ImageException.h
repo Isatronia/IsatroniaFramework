@@ -6,24 +6,21 @@
 //--------------------------------------------------------------------------------------
 #pragma once
 #include <iostream>
-#include "./Exception.h"
+#include "Exception.h"
 
 namespace Isatronia::Exception
 {
 	using std::wstring;
 	using std::string;
 
-	class ImageException : public std::exception
+	class ImageException : public FileException
 	{
-	public:
-		ImageException(string Description);
-	public:
-		virtual void showErrorDialog();
+		using FileException::FileException;
+	
 	};
 
 	class BitmapFlipException : public ImageException
 	{
-	public:
-		BitmapFlipException(string Description);
+		using ImageException::ImageException;
 	};
 }

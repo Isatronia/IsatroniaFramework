@@ -136,7 +136,7 @@ namespace Isatronia::Resource {
 		if ( mBitMapInfoHeader.biHeight < 0 ) return; // the BM do not need flip.
 		if ( mBitMapInfoHeader.biBitCount < 8 )
 		{
-			throw( new BitmapFlipException() );
+			throw( new BitmapFlipException("Flip Exception Occured.") );
 			return;	// not deal with 1&4bit bitmap.
 		}
 

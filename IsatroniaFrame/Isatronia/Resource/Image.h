@@ -14,24 +14,23 @@
 
 #include "./Resource.h"
 #include "./RGBInfo.h"
+#include "./ImageInfo.h"
 
-namespace Isatronia::Resource {
-
-	class Image: public Resource
+namespace Isatronia::Resource
+{
+	class Image : public Resource
 	{
 	private:
-		// Image Size.
-		POINT mImageDimension;
+		// Image Info
+		ImageInfo mImageInfo;
+		/*POINT mImageDimension;*/
+
 		// The memory where Image stored.
-		UCHAR* mBuffer;
-		
-		// total size of image, save for later.
-		int mBitCnt;
-		// col dip
-		int mColorDepth;
+		//UCHAR* mBuffer;
+		RGBAInfo* mBuffer;
 
 	public:
-		// This constructor will give u a empty Image.
+		// This constructor will give u an empty Image.
 		Image();
 		virtual ~Image();
 
@@ -39,24 +38,17 @@ namespace Isatronia::Resource {
 		virtual void loadImage(const char* fileName) = 0;
 		virtual void unloadImage() = 0;
 
-
 		virtual RGBInfo getPixelRGB(int x, int y) = 0;
 
 	public:
-		// getters and setters.
-		POINT getImageDimension();
-		void setImageDimension(POINT dim);
-
-		UCHAR* getImage();
-
-		int getImageSize();
-
-		int getColorDepth();
+		// public getters
+		ImageInfo* const getImageInfo();
+		RGBAInfo* const getImage();
 
 		// setters for subclasses.
 	protected:
-		void setImage(UCHAR* img);
-		void setImageSize(int size);
-		void setColorDepth(int colorDepth);
+		void setImage(ImageInfo info, RGBAInfo* img);
+		void setPixel(unsigned __int32 x, unsigned __int32 y, RGBAInfo& pixel);
+		void setImageInfo(const ImageInfo& info);
 	};
 }

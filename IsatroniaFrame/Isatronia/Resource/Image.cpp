@@ -5,38 +5,29 @@
 // Licensed under the MIT License.
 //--------------------------------------------------------------------------------------
 #include "Image.h"
+#include "../Exceptions/exceptions.h"
 
 //#define __POSTERR(str) {MessageBoxA(0, str, L"Error", NULL);}
 
-namespace Isatronia::Resource {
+namespace Isatronia::Resource
+{
 	// ---------------------------------------------------
 	// Methods
 	// ---------------------------------------------------
-	void Image::unloadImage() {
-		if (getImage())
-		{
-			delete getImage();
-		}
-		setImage(nullptr);
-		setColorDepth(0);
-		setImageDimension(POINT{ 0, 0 });
-		setImageSize(0);
-	}
 
 	// ---------------------------------------------------
 	// Constructors
 	// ---------------------------------------------------
-	Image::Image() {
-		
-		setImageDimension(POINT{ 0 ,0 });
-		setColorDepth(0);
-		setImage(nullptr);
-		setImageSize(0);
+	Image::Image()
+	{
+		setImage(ImageInfo(), nullptr);
 		return;
 	}
 
-	Image::~Image() {
-		if (mBuffer) {
+	Image::~Image()
+	{
+		if ( mBuffer )
+		{
 			delete mBuffer;
 		}
 		return;
@@ -46,40 +37,35 @@ namespace Isatronia::Resource {
 	// Getters And Setters
 	// ---------------------------------------------------
 
-	POINT Image::getImageDimension() {
-		return mImageDimension;
+	ImageInfo* const  Image::getImageInfo()
+	{
+		return &mImageInfo;
 	}
 
-	void Image::setImageDimension(POINT dim) {
-		mImageDimension = dim;
+	void Image::setImageInfo(const ImageInfo& info)
+	{
+		mImageInfo = info;
 		return;
 	}
 
-	UCHAR* Image::getImage() {
+	RGBAInfo* const Image::getImage()
+	{
 		return mBuffer;
 	}
 
-	void Image::setImage(UCHAR* img) {
+	void Image::setImage(ImageInfo info, RGBAInfo* img)
+	{
+		mImageInfo = info;
 		mBuffer = img;
 		return;
 	}
 
-	int Image::getImageSize() {
-		return mBitCnt;
-	}
-
-	void Image::setImageSize(int size) {
-		mBitCnt = size;
-		return;
-	}
-
-	int Image::getColorDepth() {
-		return mColorDepth;
-	}
-
-	void Image::setColorDepth(int colorDepth) {
-		mColorDepth = colorDepth;
-		return;
+	void Image::setPixel(unsigned __int32 x, unsigned __int32 y, RGBAInfo& pixel)
+	{
+		if ( mImageInfo.getWidth() <= x || mImageInfo.getHeight <= y )
+		{
+			
+		}
 	}
 }
 

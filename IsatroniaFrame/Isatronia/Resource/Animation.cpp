@@ -6,25 +6,29 @@
 //--------------------------------------------------------------------------------------
 #include "Animation.h"
 
-namespace Isatronia::Resource {
+namespace Isatronia::Resource
+{
 	using std::vector;
 
-	Animation::Animation() {
+	Animation::Animation()
+	{
 		this->mAnimClip = vector<Image*>();
 		return;
 	}
 
-	vector<Image*> Animation::getClip() {
+	vector<Image*> const Animation::getClip()
+	{
 		return this->mAnimClip;
 	}
 
-	void Animation::setClip(vector<Image*> clip) {
+	void Animation::setClip(vector<Image*> clip)
+	{
 		this->mAnimClip = clip;
 		return;
 	}
 
-	Image* Animation::getCurrentImage()
+	Image* const Animation::getCurrentImage()
 	{
-		return mAnimClip[mCurrentIndex++];
+		return mAnimClip[mIndex++];
 	}
 }

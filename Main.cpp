@@ -7,8 +7,9 @@
 #include <vector>
 #include <map>
 
-#include "./Isatronia/Platform/DDApp.h"
-#include "./Isatronia/Exceptions/Exception.h"
+#include "DDApp.h"
+#include "Exception.h"
+#include "RuntimeException.h"
 
 using std::string;
 using std::deque;
@@ -84,7 +85,7 @@ int APIENTRY WinMain(
 	}
 	catch (Isatronia::Exception::Exception* e)
 	{
-		e->showExceptionDialog();
+		e->showErrorDialog();
 		return -1;
 	}
 	catch (...)
@@ -132,8 +133,8 @@ void TestApp::Update(const Timer& Timer)
 	//if (!ShowDebugInfo)	return;
 	if (FAILED(mlpDDSurefacePrimary->GetDC(&hdc)))
 	{
-		Exception* e = new Exception(L"DC get ERR");
-		e->showExceptionDialog();
+		Exception* e = new Exception("DC get ERR");
+		e->showErrorDialog();
 		delete e;
 		return;
 	}
@@ -157,8 +158,8 @@ void TestApp::Update(const Timer& Timer)
 	SetBkMode(hdc, old_tmode);
 	if (FAILED(mlpDDSurefacePrimary->ReleaseDC(hdc)))
 	{
-		Exception* e = new Exception(L"DC release ERR");
-		e->showExceptionDialog();
+		Exception* e = new Exception("DC release ERR");
+		e->showErrorDialog();
 		delete e;
 		return;
 	}
@@ -319,13 +320,13 @@ void TestApp::Initialize()
 	if (!InitMainWindow())
 	{
 		throw new Isatronia::Exception::RuntimeException(
-			L"Initralize main window Failed.");
+			"Initralize main window Failed.");
 	}
 
 	if (!InitDDraw())
 	{
 		throw new Isatronia::Exception::RuntimeException(
-			L"Initralize DirectDraw Failed.");
+			"Initralize DirectDraw Failed.");
 	}
 	GlobalInitialization();
 	OnResize();

@@ -7,14 +7,16 @@
 #include "DDApp.h"
 
 //#include "../../libs/dxerr.h"
-#include "../Resource/RGBInfo.h"
-#include "../Framework/Macro.h"
+#include "RGBInfo.h"
+#include "Macro.h"
+#include "RuntimeException.h"
 
 
 namespace Isatronia::Windows {
 
 	using Isatronia::Resource::RGBInfo;
 	using Isatronia::Resource::RGBAInfo;
+	using namespace Isatronia::Exception;
 
 	template<typename T>
 	void InitializeWithZero(T& obj) {
@@ -422,7 +424,7 @@ namespace Isatronia::Windows {
 		if (!InitMainWindow())
 		{
 			MessageBoxA(0, "InitWindow Failed.", "", MB_OK);
-			throw(new RuntimeException(L"InitWindow Failed."));
+			throw(new RuntimeException("InitWindow Failed."));
 			return;
 		}
 

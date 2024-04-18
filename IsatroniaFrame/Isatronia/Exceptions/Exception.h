@@ -31,20 +31,19 @@ namespace Isatronia::Exception
 	public:
 		Exception() = delete;
 		Exception(string Description);
-
+		Exception(const char*& Description);
+		Exception(const char* Description);
+	public:
 		virtual void showErrorDialog(bool fatal = false);
 	};
-	//template<typename T>
-	//class ArrayIndexOutOfBoundException : public Exception
-	//{
-	//private:
-	//	T* mArrayAddress;
-	//public:
-	//	ArrayIndexOutOfBoundException(wstring info, T* arr) :
-	//		Exception(info),
-	//		mArrayAddress(arr)
-	//	{};
 
-	//	void* getArrayAddress() { return (void*)mArrayAddress; };
-	//};
+	class LogicException : public Exception
+	{
+		using Exception::Exception;
+	};
+
+	class FileException : public Exception
+	{
+		using Exception::Exception;
+	};
 }

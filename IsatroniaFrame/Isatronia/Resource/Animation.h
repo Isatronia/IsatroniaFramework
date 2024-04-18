@@ -15,15 +15,15 @@ namespace Isatronia::Resource
 	{
 	private:
 		std::vector<Image*> mAnimClip;
-		int mCurrentIndex;
+		unsigned __int32 mIndex;
 
 	public:
 		Animation();
 
 	public:
-		std::vector<Image*> getClip();
+		std::vector<Image*> const getClip();
 		void setClip(std::vector<Image*> clip);
 
-		Image* getCurrentImage();
+		Image* const getCurrentImage();
 	};
 }
