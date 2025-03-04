@@ -9,6 +9,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <conio.h>
+#include <vector>
 
 #include <ddraw.h>
 
@@ -20,14 +21,16 @@ namespace Isatronia::Resource
 {
 	class Image : public Resource
 	{
-	private:
+	protected:
 		// Image Info
-		ImageInfo mImageInfo;
+		ImageInfo* mImageInfo;
 		/*POINT mImageDimension;*/
 
 		// The memory where Image stored.
 		//UCHAR* mBuffer;
-		RGBAInfo* mBuffer;
+		std::vector<RGBAInfo> mBuffer;
+
+		bool mIsLoaded;
 
 	public:
 		// This constructor will give u an empty Image.
@@ -42,13 +45,18 @@ namespace Isatronia::Resource
 
 	public:
 		// public getters
-		ImageInfo* const getImageInfo();
-		RGBAInfo* const getImage();
+		const ImageInfo& getImageInfo() const;
+		const std::vector<RGBAInfo>& getImage() const;
+		bool isLoaded();
 
 		// setters for subclasses.
 	protected:
-		void setImage(ImageInfo info, RGBAInfo* img);
+		ImageInfo& getInfo();
+		void setImage(ImageInfo* info, std::vector<RGBAInfo>& img);
+		void setImage(ImageInfo* info, std::vector<RGBAInfo>&& img);
 		void setPixel(unsigned __int32 x, unsigned __int32 y, RGBAInfo& pixel);
-		void setImageInfo(const ImageInfo& info);
+		//void setImageInfo(ImageInfo* info);
+		//void setImageMemory(RGBAInfo* img);
+		void setLoadState(bool isLoaded);
 	};
 }

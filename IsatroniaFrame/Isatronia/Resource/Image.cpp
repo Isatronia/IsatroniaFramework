@@ -20,15 +20,16 @@ namespace Isatronia::Resource
 	// ---------------------------------------------------
 	Image::Image()
 	{
-		setImage(ImageInfo(), nullptr);
+		setResourceType(ResourceType::image);
+		setImage(new ImageInfo, std::vector<RGBAInfo>());
 		return;
 	}
 
 	Image::~Image()
 	{
-		if ( mBuffer )
+		if ( mImageInfo != nullptr )
 		{
-			delete mBuffer;
+			delete mImageInfo;
 		}
 		return;
 	}
@@ -37,37 +38,96 @@ namespace Isatronia::Resource
 	// Getters And Setters
 	// ---------------------------------------------------
 
-	ImageInfo* const  Image::getImageInfo()
+	const ImageInfo& Image::getImageInfo() const
 	{
-		return &mImageInfo;
+		return *mImageInfo;
 	}
 
-	void Image::setImageInfo(const ImageInfo& info)
-	{
-		mImageInfo = info;
-		return;
-	}
-
-	RGBAInfo* const Image::getImage()
+	const std::vector<RGBAInfo>& Image::getImage() const
 	{
 		return mBuffer;
 	}
 
-	void Image::setImage(ImageInfo info, RGBAInfo* img)
+	bool Image::isLoaded()
 	{
-		mImageInfo = info;
-		mBuffer = img;
+		return mIsLoaded;
+	}
+
+	ImageInfo& Image::getInfo()
+	{
+		if ( mImageInfo == nullptr )
+		{
+			mImageInfo = new ImageInfo;
+		}
+		return *mImageInfo;
+	}
+
+	void Image::setLoadState(bool isLoaded)
+	{
+		mIsLoaded = isLoaded;
+		return;
+	}
+
+	void Image::setImage(ImageInfo* info, std::vector<RGBAInfo>& img)
+	{
+		if ( info != nullptr )
+		{
+			if ( info != mImageInfo )
+			{
+				if ( mImageInfo ) delete mImageInfo;
+				mImageInfo = info;
+				info = nullptr;
+			}
+			mBuffer.swap(img);
+		}
+		return;
+	}
+
+	void Image::setImage(ImageInfo* info, std::vector<RGBAInfo>&& img)
+	{
+		if ( info != nullptr )
+		{
+			if ( info != mImageInfo )
+			{
+				if ( mImageInfo ) delete mImageInfo;
+				mImageInfo = info;
+				info = nullptr;
+			}
+			mBuffer = img;
+		}
 		return;
 	}
 
 	void Image::setPixel(unsigned __int32 x, unsigned __int32 y, RGBAInfo& pixel)
 	{
-		if ( mImageInfo.getWidth() <= x || mImageInfo.getHeight <= y )
+		if ( mImageInfo->getWidth() <= x || mImageInfo->getHeight() <= y )
 		{
-			
+			// TODO:
+			mBuffer[mImageInfo->getWidth() * y + x] = pixel;
 		}
+		return;
 	}
 }
+
+/*
+void Image::setImageMemory(RGBAInfo* img)
+	{
+		if ( img != nullptr )
+		{
+			if ( mBuffer ) delete[] mBuffer;
+			mBuffer = img;
+			img = nullptr;
+		}
+		return;
+	}
+
+		void Image::setImageInfo(ImageInfo* info)
+	{
+		mImageInfo = info;
+		return;
+	}
+
+*/
 
 //Image::Image()
 //{

@@ -72,7 +72,7 @@ namespace Isatronia::Resource {
 		return;
 	}
 
-	RGBAInfo::RGBAInfo() : RGBAInfo(0, 0, 0, 0) {
+	RGBAInfo::RGBAInfo() : RGBAInfo(0, 0, 0, 255) {
 		return;
 	}
 

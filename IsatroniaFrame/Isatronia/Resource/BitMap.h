@@ -9,12 +9,21 @@
 #include <Windows.h>
 #include <iostream>
 #include <conio.h>
+#include <vector>
 
 #include <ddraw.h>
 #include "Image.h"
 
-namespace Isatronia::Resource {
-
+namespace Isatronia::Resource
+{
+	/*********************************************
+	* Class: Bitmap
+	*
+	* Desc:
+	* Save Infomations of a bitmap file, so program
+	* could do some rendering when need.
+	*
+	**********************************************/
 
 	class Bitmap : public Image
 	{
@@ -24,10 +33,11 @@ namespace Isatronia::Resource {
 
 		BITMAPINFOHEADER mBitMapInfoHeader;
 
-		PALETTEENTRY mPalette[256];
+		std::vector<PALETTEENTRY> mPalette;
 	public:
-		Bitmap();
 		Bitmap(const char* fileName);
+		Bitmap(Bitmap&& bmp) noexcept;
+		Bitmap();
 		~Bitmap();
 
 		void loadImage(const char* fileName)override;
@@ -36,10 +46,12 @@ namespace Isatronia::Resource {
 		void Flip();
 
 		RECT getImageRect();
-		RECT GetDestRect(long x, long y);
+		RECT GetDestRect(__int32 x, __int32 y);
 
-		RGBInfo getPixelRGB(int x, int y)override;
+		RGBInfo getPixelRGB(__int32 x, __int32 y)override;
 
+	protected:
+		__int32 getPixelIndex(unsigned __int32 x, unsigned __int32 y);
 	};
 }
 

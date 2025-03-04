@@ -5,11 +5,9 @@
 // Licensed under the MIT License.
 //--------------------------------------------------------------------------------------
 
-
 #include "I18n.h"
 #include "Exception.h"
 #include "RuntimeException.h"
-
 
 namespace Isatronia::I18N
 {
@@ -33,26 +31,26 @@ namespace Isatronia::I18N
 		return;
 	}
 
-
 	//-------------------------------------------------------------------------------
 	// CoreDict
 	//-------------------------------------------------------------------------------
+	std::map<std::wstring, std::wstring> CoreDict::mDict = std::map<std::wstring, std::wstring>();
+
 	CoreDict::CoreDict()
 	{
-		if ( CoreDict::mDict != nullptr )
+		if ( CoreDict::mDict.size() == 0 )
 		{
-			CoreDict::mDict = new map<wstring, wstring>;
+			CoreDict::mDict = std::map<std::wstring, std::wstring>();
 		}
 		return;
 	}
-	void CoreDict::loadDictFromeLocal(wstring dictFilePath)
+	void CoreDict::loadDictFromeLocal(std::wstring dictFilePath)
 	{
 		return;
 	}
 
-	wstring CoreDict::getStringByKey(wstring key)
+	std::wstring CoreDict::getStringByKey(std::wstring key)
 	{
 		return L"";
 	}
 }
-

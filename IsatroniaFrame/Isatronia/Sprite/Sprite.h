@@ -43,14 +43,23 @@ namespace Isatronia::Sprite
 	class Sprite
 	{
 	private:
-		map<string, Animation*> mAnimList;
+		std::map<string, Animation*> mAnimList;
 		FacingDirection mFacing;
-		RECT mHitBox;
-		POINT mPosition;
+		RECT* mHitBox;
+		POINT* mPosition;
 		SpriteState mState;
-		POINT mVelocity;
-		string mAnimationIndex;
+		POINT* mVelocity;
+		std::string mAnimationIndex;
 	public:
-		Image* getRenderingTarget();
+		Sprite(const std::string& path);
+		Sprite(Sprite& _S) = delete;
+		Sprite(Sprite&& _S) noexcept;
+		~Sprite();
+
+		const Image* const getRenderingTarget();
+
+		void setAnimClip(std::string& state);
+	private:
+		void loadSpriteFromFile(const std::string& path);
 	};
 }

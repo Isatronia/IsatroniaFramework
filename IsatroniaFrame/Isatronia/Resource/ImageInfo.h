@@ -6,7 +6,7 @@ namespace Isatronia::Resource
 {
 	class ImageInfo
 	{
-	private:
+	protected:
 		// size of the image
 		POINT mSize;
 
@@ -25,9 +25,19 @@ namespace Isatronia::Resource
 		__int32 getHeight();
 
 		__int32 getBitCount();
+		__int32 getPixelCount();
 
 		__int32 getColorDepth();
 
 		bool isRGBA();
+
+		void setSize(POINT& size);
+		void setSize(POINT&& size);
+
+		void setBitCnt(__int32 count);
+
+		void setColorDepth(__int32 depth);
+
+		void setRGBA(bool isRGBA);
 	};
 }

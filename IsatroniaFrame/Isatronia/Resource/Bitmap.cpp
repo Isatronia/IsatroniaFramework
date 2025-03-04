@@ -10,7 +10,8 @@
 #include "../Exceptions/Exception.h"
 #include "../Exceptions/ImageException.h"
 
-namespace Isatronia::Resource {
+namespace Isatronia::Resource
+{
 	using namespace Isatronia::Framework;
 	using namespace Isatronia::Exception;
 
@@ -18,23 +19,52 @@ namespace Isatronia::Resource {
 	{
 		mBitMapFileHeader = { 0 };
 		mBitMapInfoHeader = { 0 };
-		memset(&mPalette, 0, sizeof(mPalette));
+		mPalette = std::vector<PALETTEENTRY>(255);
 	}
 
-	Bitmap::Bitmap(const char* fileName)
+	Bitmap::Bitmap(const char* fileName) :Image()
 	{
+		mBitMapFileHeader = { 0 };
+		mBitMapInfoHeader = { 0 };
+		mPalette = std::vector<PALETTEENTRY>(255);
 		Bitmap::loadImage(fileName);
+	}
+
+	Bitmap::Bitmap(Bitmap&& bmp) noexcept
+	{
+		mBitMapFileHeader = bmp.mBitMapFileHeader;
+		mBitMapInfoHeader = bmp.mBitMapInfoHeader;
+		mPalette = bmp.mPalette;
+		mImageInfo = bmp.mImageInfo;
+		if ( bmp.mImageInfo )
+		{
+			bmp.mImageInfo = nullptr;
+		}
+		mBuffer = bmp.mBuffer;
+		if ( bmp.mBuffer.size() > 0 )
+		{
+			std::vector<RGBAInfo>().swap(bmp.mBuffer);
+		}
+		mIsLoaded = bmp.mIsLoaded;
+		return;
+	}
+
+	Bitmap::~Bitmap()
+	{
+		unloadImage();
 	}
 
 	void Bitmap::loadImage(const char* fileName)
 	{
-
 		int fileHandle;	// the file handle
 		int index;		// looping index
 
-		UCHAR* tempBuffer = nullptr;	// used to convert 24bit image to 16bit
+		/*UCHAR* tempBuffer = nullptr;*/	// used to convert 24bit image to 16bit
+		std::unique_ptr<UCHAR[]> imageBuffer(nullptr);
 		OFSTRUCT fileData;
 		memset(&fileData, 0, sizeof(fileData));
+
+		unloadImage();
 
 		//if (-1 == (fileHandle = OpenFile(fileName, &fileData, OF_READ)))
 		if ( HFILE_ERROR == ( fileHandle = OpenFile(fileName, &fileData, OF_READ) ) )
@@ -55,46 +85,74 @@ namespace Isatronia::Resource {
 		// now load the bitmap file header
 		_lread(fileHandle, &mBitMapInfoHeader, sizeof(BITMAPINFOHEADER));
 
+		// fill ImageInfo
+		getInfo().setBitCnt(mBitMapInfoHeader.biSize);
+		getInfo().setColorDepth(mBitMapInfoHeader.biBitCount);
+		getInfo().setSize({ mBitMapInfoHeader.biWidth, std::abs(mBitMapInfoHeader.biHeight) });
+		if ( getInfo().getColorDepth() < 32 )
+		{
+			getInfo().setRGBA(false);
+		}
+		else
+		{
+			getInfo().setRGBA(true);
+		}
+
 		// what we need done for 8-bit bitmap
 		if ( mBitMapInfoHeader.biBitCount == 8 )
 		{
-			_lread(fileHandle, &mPalette,
-				256 * sizeof(PALETTEENTRY));
+			_lread(fileHandle, mPalette.data(), 256 * sizeof(PALETTEENTRY));
 
 			for ( index = 0; index < 256; index++ )
 			{
 				// reverse the red and greed fields, maybe.
-				Swap(mPalette[index].peBlue, mPalette->peRed);
+				Swap(mPalette[index].peBlue, mPalette[index].peRed);
 
 				// aleays set the flags word to this
-				mPalette->peFlags = PC_NOCOLLAPSE;
+				mPalette[index].peFlags = PC_NOCOLLAPSE;
 			}
 		}// end if
 
 		// in case of 16 bits
-		_llseek(fileHandle, -(int) ( mBitMapFileHeader.bfSize ), SEEK_END);
+		//_llseek(fileHandle, -(int) ( mBitMapFileHeader.bfSize ), SEEK_END);
+		_llseek(fileHandle, -(int) ( mBitMapInfoHeader.biSizeImage ), SEEK_END);
+		//_llseek(fileHandle, mBitMapFileHeader.bfOffBits, SEEK_SET);
 
 		// now read in the Image
 		if ( mBitMapInfoHeader.biBitCount == 8 ||
 			mBitMapInfoHeader.biBitCount == 16 ||
-			mBitMapInfoHeader.biBitCount == 24 )
+			mBitMapInfoHeader.biBitCount == 24 ||
+			mBitMapInfoHeader.biBitCount == 32 )
 		{
 			// if have another bitmap before, del it.
-			if ( getImage() != nullptr )
+			/*if ( getImage().size()> 0 )
 			{
 				delete getImage();
-			}
-
-			setImage(new UCHAR[mBitMapInfoHeader.biSizeImage]);
-			// test if new failed.
-			if ( !getImage() )
+			}*/
+			try
 			{
+				imageBuffer.reset(new UCHAR[mBitMapInfoHeader.biSizeImage]);
+				this->setImage(mImageInfo, std::vector<RGBAInfo>(getInfo().getPixelCount()));
+			}
+			catch ( const std::bad_alloc& e )
+			{
+				//  if alloc memory failed.
+				unloadImage();
 				_lclose(fileHandle);
 				return;
 			}
 
 			// now read.
-			_lread(fileHandle, getImage(), mBitMapInfoHeader.biSizeImage);
+			_lread(fileHandle, static_cast<LPVOID>( imageBuffer.get() ), mBitMapInfoHeader.biSizeImage);
+			for ( int y = 0; y < abs(mBitMapInfoHeader.biHeight); ++y )
+			{
+				int src_y = mBitMapInfoHeader.biHeight - y - 1;
+				for ( int x = 0; x < mBitMapInfoHeader.biWidth; ++x )
+				{
+					mBuffer[y * mBitMapInfoHeader.biWidth + x] =
+						getRGBAInfoInImageBuffer(imageBuffer.get(), mBitMapInfoHeader, x, src_y);
+				}
+			}
 		}// end if
 		else
 		{
@@ -103,36 +161,33 @@ namespace Isatronia::Resource {
 
 		_lclose(fileHandle);
 
-		Flip();
+		setLoadState(true);
 
-		setColorDepth(mBitMapInfoHeader.biBitCount);
-
+		//Flip();
+		//this->mImageInfo->setColorDepth(mBitMapInfoHeader.biBitCount);
 		return;
 	}
 
 	void Bitmap::unloadImage()
 	{
-		try
+		mBitMapFileHeader = { 0 };
+		mBitMapInfoHeader = { 0 };
+		mPalette = std::vector<PALETTEENTRY>(255, { 0 });
+		mIsLoaded = false;
+		if ( mBuffer.size() > 0 )
 		{
-			if ( getImage() != nullptr )
-			{
-				delete getImage();
-				setImage(nullptr);
-			}
-			return;
+			std::vector<RGBAInfo>().swap(mBuffer);
 		}
-		catch ( ... )
+		if ( mImageInfo )
 		{
-			return;
+			delete mImageInfo;
+			mImageInfo = nullptr;
 		}
 		return;
 	}
 
 	void Bitmap::Flip()
 	{
-		// TODO: 在此处添加实现代码.
-		UCHAR* buffer = new UCHAR[sizeof(getImage())];
-
 		if ( mBitMapInfoHeader.biHeight < 0 ) return; // the BM do not need flip.
 		if ( mBitMapInfoHeader.biBitCount < 8 )
 		{
@@ -140,53 +195,57 @@ namespace Isatronia::Resource {
 			return;	// not deal with 1&4bit bitmap.
 		}
 
+		std::vector<RGBAInfo> buffer(getInfo().getPixelCount());
 		//mBitCnt = mBitMapInfoHeader.biBitCount / 8;
-		setImageSize(mBitMapInfoHeader.biBitCount / 8);
+		//setImageSize(mBitMapInfoHeader.biBitCount / 8);
 
 		// Flip the bitmap
-		for ( int y = 0; y < mBitMapInfoHeader.biHeight; y++ )
+		int _ylim = mBitMapInfoHeader.biHeight >> 1;
+		int _width = getInfo().getWidth();
+		for ( int y = 0; y < _ylim; ++y )
 		{
-			memcpy(buffer + y * (int) mBitMapInfoHeader.biHeight,
+			int _yOppo = getInfo().getHeight() - y - 1;
+			/*memcpy(buffer + y * (int) mBitMapInfoHeader.biHeight,
 				getImage() + ( (int) mBitMapInfoHeader.biHeight - y ) * mBitMapInfoHeader.biHeight,
-				mBitMapInfoHeader.biWidth);
+				mBitMapInfoHeader.biWidth);*/
+			for ( int x = 0; x < mBitMapInfoHeader.biWidth; ++x )
+			{
+				std::swap(mBuffer[y * _width + x], mBuffer[_yOppo * _width + x]);
+				//buffer[getPixelIndex(x, y)] = mBuffer[getPixelIndex(x, abs(getInfo().getHeight() - y - 1))];
+			}
 		}
-
-		delete getImage();
-		setImage(buffer);
-		buffer = nullptr;
 		return;
 	}
 
+	RECT Bitmap::getImageRect()
+	{
+		return { 0, 0, getInfo().getWidth(), getInfo().getHeight() };
+	}
+	RECT Bitmap::GetDestRect(__int32 x, __int32 y)
+	{
+		return { x , y, x + getInfo().getWidth(), y + getInfo().getHeight() };
+	}
+
+
 	RGBInfo Bitmap::getPixelRGB(int x, int y)
 	{
-		if ( mBitMapInfoHeader.biBitCount < 8 ) return RGBInfo(0, 0, 0);
-		RGBInfo col(0, 0, 0);
-		UCHAR* mBuffer = getImage();
-		switch ( mBitMapInfoHeader.biBitCount )
+		if ( x < getInfo().getWidth() && y < getInfo().getHeight() )
 		{
-		case 16:
-		{
-			col.b = ( mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 2 + 0] ) >> 3;
-			col.g = ( mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 2 + 1] ) >> 2;
-			col.r = ( mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 2 + 2] ) >> 3;
+			return mBuffer[getPixelIndex(x, y)];
 		}
-		break;
-		case 24:
-		{
-			col.b = mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 3 + 0];
-			col.g = mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 3 + 1];
-			col.r = mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 3 + 2];
-		}
-		break;
-		case 32:
-		{
-			col.b = mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 4 + 0];
-			col.g = mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 4 + 1];
-			col.r = mBuffer[( x + y * mBitMapInfoHeader.biWidth ) * 4 + 2];
-		}
-		break;
-		default:break;
-		}
-		return col;
+		return RGBInfo();
 	}
+
+	__int32 Bitmap::getPixelIndex(unsigned __int32 x, unsigned __int32 y)
+	{
+		if ( !isLoaded() ||
+			static_cast<__int64>( x ) > static_cast<__int64>( getInfo().getWidth() ) ||
+			static_cast<__int64>( y ) > static_cast<__int64>( getInfo().getHeight() ) )
+		{
+			return NULL;
+		}
+		return getInfo().getWidth() * y + x;
+	}
+
+
 }

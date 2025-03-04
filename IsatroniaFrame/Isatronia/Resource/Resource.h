@@ -27,17 +27,26 @@ namespace Isatronia::Resource {
 		static __int64 GUIDCount;
 	private:
 		__int64 mGUID;
+		std::string mResourceId;
 		ResourceType mResourceType;
 	protected:
 		void setGUID(__int64 GUID) { mGUID = GUID; };
 		virtual void setResourceType(ResourceType type) { mResourceType = type; };
 	public:
-		Resource() {
+		Resource()
+		{
 			mGUID = Resource::GUIDCount++;
 			mResourceType = ResourceType::none;
+			mResourceId = '\0';
+		}
+		Resource(std::string resourceName) {
+			mGUID = Resource::GUIDCount++;
+			mResourceType = ResourceType::none;
+			mResourceId = resourceName;
 		};
 
-		__int64 getGUID() { return mGUID; };
+		const __int64 getGUID() { return mGUID; };
 		ResourceType getType() { return mResourceType; };
+		const std::string& getResourceName() { return mResourceId; }
 	};
 }

@@ -16,7 +16,7 @@ namespace Isatronia::I18N {
 
 	enum class DisplayLanguage {
 		English,
-		Chinese_Simplifieded,
+		Chinese_Simplified,
 	};
 
 	wstring CheckLocal();
@@ -31,15 +31,15 @@ namespace Isatronia::I18N {
 	class CoreDict
 	{
 	private:
-		static map<wstring, wstring>* mDict;
+		static std::map<std::wstring, std::wstring> mDict;
 	//---------------------------------------
 	// Methods
 	//---------------------------------------
 	private:
-		void loadDictFromeLocal(wstring);
+		void loadDictFromeLocal(std::wstring);
 	public:
 		CoreDict();
-		wstring getStringByKey(wstring key);
+		std::wstring getStringByKey(std::wstring key);
 	};
 
 

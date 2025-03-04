@@ -37,119 +37,29 @@
     <Filter Include="Dependences\Isatronia\I18N">
       <UniqueIdentifier>{f57d1833-0a17-4f1a-b295-af9d2dd6f5af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\IsatroniaFrame">
+      <UniqueIdentifier>{d3cc3f29-ae37-4022-9adc-b380c060478e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IsatroniaFrame\Exception">
+      <UniqueIdentifier>{70d236dc-9d59-4b4b-a8e0-f67bd443c928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IsatroniaFrame\Framework">
+      <UniqueIdentifier>{80b21f93-e3f9-4d0f-8d2f-6dd7bdb5094b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IsatroniaFrame\I18N">
+      <UniqueIdentifier>{a4079368-add7-4ccc-b773-71c77a202906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IsatroniaFrame\Resource">
+      <UniqueIdentifier>{71a9774c-a2de-4447-8acb-fde0e71e1ec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IsatroniaFrame\Sprite">
+      <UniqueIdentifier>{4f13ceaa-5ab3-4ccb-8551-0d979cc1d166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IsatroniaFrame\Platform">
+      <UniqueIdentifier>{e54cdaeb-13f7-45c7-b415-4b98d3ed2861}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Job.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Platform\App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Platform\DDApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Bitmap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Resource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Sprite\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Job.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Platform\App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Platform\DDApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Bitmap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Resource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Sprite\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Job.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Framework\Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Platform\App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Platform\DDApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Bitmap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\Resource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Isatronia\Sprite\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -516,7 +426,52 @@
     <ClCompile Include="..\Isatronia\**\*.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include=".\Isatronia\**\*.cpp">
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\IsaMemory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Bitmap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include=".\Isatronia\**\*.cpp">
@@ -555,10 +510,1549 @@
     <ClCompile Include=".\Isatronia\**\*.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include=".\Isatronia\**\*.cpp">
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\IsaMemory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Framework\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include=".\Isatronia\**\*.cpp">
+    <ClCompile Include="Isatronia\Framework\Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\I18N</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Framework\Job.cpp">
+      <Filter>Source Files\IsatroniaFrame\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Exceptions\Exception.cpp">
+      <Filter>Source Files\IsatroniaFrame\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Exceptions\ImageException.cpp">
+      <Filter>Source Files\IsatroniaFrame\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Exceptions\RuntimeException.cpp">
+      <Filter>Source Files\IsatroniaFrame\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\I18n\I18n.cpp">
+      <Filter>Source Files\IsatroniaFrame\I18N</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Resource\Bitmap.cpp">
+      <Filter>Source Files\IsatroniaFrame\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Resource\Animation.cpp">
+      <Filter>Source Files\IsatroniaFrame\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Resource\Image.cpp">
+      <Filter>Source Files\IsatroniaFrame\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Resource\ImageInfo.cpp">
+      <Filter>Source Files\IsatroniaFrame\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Resource\Resource.cpp">
+      <Filter>Source Files\IsatroniaFrame\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Resource\RGBInfo.cpp">
+      <Filter>Source Files\IsatroniaFrame\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Sprite\Sprite.cpp">
+      <Filter>Source Files\IsatroniaFrame\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Platform\DDApp.cpp">
+      <Filter>Source Files\IsatroniaFrame\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Platform\App.cpp">
+      <Filter>Source Files\IsatroniaFrame\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include=".\Isatronia\**\*.h">
@@ -597,7 +2091,64 @@
     <ClCompile Include=".\Isatronia\**\*.h">
       <Filter>Dependences</Filter>
     </ClCompile>
-    <ClCompile Include=".\Isatronia\**\*.h">
+    <ClCompile Include=".\Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Job.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Macro.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Timer.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Framework\Utils.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\I18n\I18n.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\App.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Platform\DDApp.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Animation.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\BitMap.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Image.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\Resource.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\Sprite\Sprite.h">
       <Filter>Dependences</Filter>
     </ClCompile>
     <ClCompile Include=".\Isatronia\**\*.h">
@@ -614,144 +2165,27 @@
     </ClCompile>
     <ClCompile Include=".\Isatronia\**\*.h">
       <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Isatronia\**\*.h">
+      <Filter>Dependences</Filter>
+    </ClCompile>
+    <ClCompile Include="Demo\DemoGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Platform\IsaMemory.cpp">
+      <Filter>Source Files\IsatroniaFrame\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Isatronia\Platform\IsaMemory.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Isatronia\Exceptions\ImageException.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Job.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Macro.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Timer.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Utils.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\I18N\IsaI18N.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Platform\App.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Platform\DDApp.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Animation.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\BitMap.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Image.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Resource.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Sprite\Sprite.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Exceptions\ImageException.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Job.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Macro.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Timer.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Utils.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\I18N\IsaI18N.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Platform\App.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Platform\DDApp.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Animation.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\BitMap.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Image.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Resource.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Sprite\Sprite.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Exceptions\ImageException.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Job.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Macro.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Timer.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Framework\Utils.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\I18N\IsaI18N.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Platform\App.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Platform\DDApp.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Animation.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\BitMap.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Image.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\Resource.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\ResourceFactory.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Resource\RGBInfo.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Isatronia\Sprite\Sprite.h">
-      <Filter>Dependences</Filter>
-    </ClInclude>
     <ClInclude Include="..\Isatronia\Exceptions\ImageException.h">
       <Filter>Dependences</Filter>
     </ClInclude>
@@ -1424,8 +2858,68 @@
     <ClInclude Include="..\Isatronia\**\*.h">
       <Filter>Dependences\Isatronia\Platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\Isatronia\I18N\I18n.h">
-      <Filter>Dependences</Filter>
+    <ClInclude Include="Isatronia\Resource\Animation.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Platform\App.h">
+      <Filter>Dependences\Isatronia\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Resource\BitMap.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Framework\Coroutine.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Platform\DDApp.h">
+      <Filter>Dependences\Isatronia\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Exceptions\Exception.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Exceptions\exceptions.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\I18n\I18n.h">
+      <Filter>Dependences\Isatronia\I18N</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Resource\Image.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Exceptions\ImageException.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Resource\ImageInfo.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Common\IsatroniaCommon.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Framework\Job.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Framework\Macro.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Resource\Resource.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Resource\ResourceFactory.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Resource\RGBInfo.h">
+      <Filter>Dependences\Isatronia\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Exceptions\RuntimeException.h">
+      <Filter>Dependences\Isatronia\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Sprite\Sprite.h">
+      <Filter>Dependences\Isatronia\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Framework\Timer.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Isatronia\Framework\Utils.h">
+      <Filter>Dependences\Isatronia\Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -8,10 +8,11 @@
 #include <vector>
 
 #include "Image.h"
+#include "Resource.h"
 
 namespace Isatronia::Resource
 {
-	class Animation
+	class Animation: protected Resource
 	{
 	private:
 		std::vector<Image*> mAnimClip;
@@ -19,11 +20,17 @@ namespace Isatronia::Resource
 
 	public:
 		Animation();
+		Animation(Animation&);
+		Animation(Animation&&);
+		~Animation();
 
 	public:
-		std::vector<Image*> const getClip();
+		const std::vector<Image*>& getClip();
 		void setClip(std::vector<Image*> clip);
 
-		Image* const getCurrentImage();
+		const Image* getCurrentImage();
+		const Image* getImageByIndex(const __int32 index);
+	protected:
+		void deleteClip();
 	};
 }

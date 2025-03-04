@@ -13,10 +13,30 @@ namespace Isatronia::Resource
 	Animation::Animation()
 	{
 		this->mAnimClip = vector<Image*>();
+		this->mIndex = static_cast<unsigned __int32>( 0 );
+		return;
+	}
+	Animation::Animation(Animation& anim)
+	{
+		this->mAnimClip = std::move(anim.mAnimClip);
+		this->mIndex = anim.mIndex;
 		return;
 	}
 
-	vector<Image*> const Animation::getClip()
+	Animation::Animation(Animation&& anim)
+	{
+		this->mAnimClip = std::move(anim.mAnimClip);
+		this->mIndex = anim.mIndex;
+		return;
+	}
+
+	Animation::~Animation()
+	{
+		deleteClip();
+		return;
+	}
+
+	const vector<Image*>& Animation::getClip()
 	{
 		return this->mAnimClip;
 	}
@@ -27,8 +47,27 @@ namespace Isatronia::Resource
 		return;
 	}
 
-	Image* const Animation::getCurrentImage()
+	const Image* Animation::getCurrentImage()
 	{
-		return mAnimClip[mIndex++];
+		return mAnimClip[( mIndex++ ) % mAnimClip.size()];
+	}
+
+	const Image* Animation::getImageByIndex(const __int32 index)
+	{
+		return mAnimClip[index % mAnimClip.size()];
+	}
+
+	void Animation::deleteClip()
+	{
+		for ( auto img : mAnimClip )
+		{
+			if ( img )
+			{
+				delete img;
+			}
+		}
+		vector<Image*>().swap(mAnimClip);
+		this->mIndex = 0;
+		return;
 	}
 }

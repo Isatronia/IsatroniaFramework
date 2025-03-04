@@ -10,14 +10,13 @@
 #include "DDApp.h"
 #include "Exception.h"
 #include "RuntimeException.h"
+#include "BitMap.h"
 
 using std::string;
 using std::deque;
 using std::vector;
 using std::map;
 using std::pair;
-
-
 
 //#define __POSTERR(str) {MessageBox(0, str, "Error", NULL);}
 //#define DXInit_s(res, str) { if (FAILED(res)) {__POSTERR(str);return false; } }
@@ -30,11 +29,10 @@ using std::pair;
 //#define __GAME_STATE_END__		4
 //#define __GAME_STATE_STGINIT__	5
 
-
 using namespace Isatronia::Windows;
 
-
-enum class GameState {
+enum class GameState
+{
 	menu,
 	run,
 	win,
@@ -55,27 +53,31 @@ public:
 private:
 	virtual void Draw(const Timer& Timer)override;
 	virtual void Update(const Timer& Timer)override;
-	
 
 public:
 	void Pause() { mAppPaused = true; return; };
 	void unPause() { mAppPaused = false; return; };
 };
 
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// APP ENTRY /////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int APIENTRY WinMain(
 	_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hprevInstance,
 	_In_ LPSTR cmdLine,
 	_In_ int showcmd
-){
+)
+{
 	using std::ifstream;
 
 	// buffer String
 	char sz[100] = { 0 };
 
-	try {
+	try
+	{
 		// 前置数据载入
 
 		// Init App
@@ -83,12 +85,12 @@ int APIENTRY WinMain(
 		app.Initialize();
 		return app.Run();
 	}
-	catch (Isatronia::Exception::Exception* e)
+	catch ( Isatronia::Exception::Exception* e )
 	{
 		e->showErrorDialog();
 		return -1;
 	}
-	catch (...)
+	catch ( ... )
 	{
 		MessageBoxA(nullptr, "Failed", "Failed", MB_OK);
 		return 1;
@@ -98,6 +100,7 @@ int APIENTRY WinMain(
 
 void TestApp::Draw(const Timer& Timer)
 {
+	
 	return;
 }
 
@@ -112,9 +115,9 @@ void TestApp::Update(const Timer& Timer)
 
 	memset(&mDDSD, 0, sizeof(mDDSD));
 	mDDSD.dwSize = sizeof(mDDSD);
-	if (FAILED(mlpDDSurefacePrimary->Lock(NULL, &mDDSD,
+	if ( FAILED(mlpDDSurefacePrimary->Lock(NULL, &mDDSD,
 		DDLOCK_SURFACEMEMORYPTR | DDLOCK_WAIT,
-		NULL)))
+		NULL)) )
 	{
 		//MessageBox(mhMainWnd, "Lock Falied", "Error", MB_OK);
 		//PostQuitMessage(0);
@@ -123,7 +126,7 @@ void TestApp::Update(const Timer& Timer)
 
 	Draw(Timer);
 
-	if (FAILED(mlpDDSurefacePrimary->Unlock(NULL)))
+	if ( FAILED(mlpDDSurefacePrimary->Unlock(NULL)) )
 	{
 		MessageBoxA(mhMainWnd, "Unlock Falied", "Error", MB_OK);
 		PostQuitMessage(0);
@@ -131,7 +134,7 @@ void TestApp::Update(const Timer& Timer)
 	}
 
 	//if (!ShowDebugInfo)	return;
-	if (FAILED(mlpDDSurefacePrimary->GetDC(&hdc)))
+	if ( FAILED(mlpDDSurefacePrimary->GetDC(&hdc)) )
 	{
 		Exception* e = new Exception("DC get ERR");
 		e->showErrorDialog();
@@ -156,7 +159,7 @@ void TestApp::Update(const Timer& Timer)
 	SetTextColor(hdc, old_fcol);
 	SetBkColor(hdc, old_bcol);
 	SetBkMode(hdc, old_tmode);
-	if (FAILED(mlpDDSurefacePrimary->ReleaseDC(hdc)))
+	if ( FAILED(mlpDDSurefacePrimary->ReleaseDC(hdc)) )
 	{
 		Exception* e = new Exception("DC release ERR");
 		e->showErrorDialog();
@@ -167,7 +170,8 @@ void TestApp::Update(const Timer& Timer)
 	return;
 }
 
-void TestApp::GlobalInitialization() {
+void TestApp::GlobalInitialization()
+{
 	return;
 }
 
@@ -317,13 +321,13 @@ void TestApp::GlobalInitialization() {
 void TestApp::Initialize()
 {
 	// TODO: 在此处添加实现代码.
-	if (!InitMainWindow())
+	if ( !InitMainWindow() )
 	{
 		throw new Isatronia::Exception::RuntimeException(
 			"Initralize main window Failed.");
 	}
 
-	if (!InitDDraw())
+	if ( !InitDDraw() )
 	{
 		throw new Isatronia::Exception::RuntimeException(
 			"Initralize DirectDraw Failed.");
@@ -336,10 +340,10 @@ void TestApp::Initialize()
 LRESULT TestApp::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	// TODO: 在此处添加实现代码.
-	switch (msg)
+	switch ( msg )
 	{
 	case WM_ACTIVATE:
-		if (LOWORD(wParam) == WA_INACTIVE)
+		if ( LOWORD(wParam) == WA_INACTIVE )
 		{
 			// when the Window is inactive, pause the game.
 			mAppPaused = true;
@@ -385,11 +389,6 @@ LRESULT TestApp::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	}
 	return 0;
 }
-
-
-
-
-
 
 /*
 
@@ -626,11 +625,8 @@ int flag = 0;// 用于部分判定
 	}// end Switch
 	return;
 
-
 // 函数的前置声明
 inline bool IsIn(POINT p, RECT rect);
-
-
 
 // Init Class's static member.
 int Role::mClientWidth = 800;
@@ -654,7 +650,6 @@ vector<CEnimy> EnimyList;
 vector<RECT> GoalList;
 
 char debug[100] = {};
-
 
 				flag = 0;
 				// 如果卡墙里了
