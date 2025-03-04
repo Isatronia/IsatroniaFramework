@@ -1,0 +1,17 @@
+﻿extensions: .cs .cpp .h
+//--------------------------------------------------------------------------------------
+// File: %FileName%
+//
+// Copyright (c) %UserName%. All rights reserved.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
+extensions: .aspx .ascx
+<%-- 
+Copyright (c) 2011 rubicon IT GmbH
+--%>
+extensions: .vb
+'Sample license text.
+extensions:  .xml .config .xsd
+<!--
+Sample license text.
+-->

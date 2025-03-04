@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|Win32">
+      <Configuration>Test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|x64">
+      <Configuration>Test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b459b918-1730-4017-9038-5445657d82e2}</ProjectGuid>
+    <RootNamespace>IsaD9Frame</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>IsatroniaFrame</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)Isatronia\Exceptions\;$(ProjectDir)Isatronia\Framework\;$(ProjectDir)Isatronia\I18n\;$(ProjectDir)Isatronia\Platform\;$(ProjectDir)Isatronia\Resource\;$(ProjectDir)Isatronia\Sprite\;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <AdditionalIncludeDirectories>F:\Programs\Visual Studio 2022\IsatroniaFrame\IsatroniaFrame\Isatronia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <!--<ClCompile Include=".\Isatronia\*.cpp" />
+    <ClCompile Include=".\Isatronia\**\*.cpp" />-->
+    <!--<ClCompile Include="..\Isatronia\**\**\*.cpp" />-->
+    <!--<ClCompile Include="..\Isatronia\Exceptions\Exception.cpp" />
+    <ClCompile Include="..\Isatronia\Exceptions\ImageException.cpp" />
+    <ClCompile Include="..\Isatronia\Framework\Job.cpp" />
+    <ClCompile Include="..\Isatronia\Framework\Timer.cpp" />
+    <ClCompile Include="..\Isatronia\Platform\App.cpp" />
+    <ClCompile Include="..\Isatronia\Platform\DDApp.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Bitmap.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Image.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Animation.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\Resource.cpp" />
+    <ClCompile Include="..\Isatronia\Resource\RGBInfo.cpp" />
+    <ClCompile Include="..\Main.cpp" />-->
+    <ClInclude Include="Isatronia\Common\IsatroniaCommon.h" />
+    <ClInclude Include="Isatronia\Exceptions\Exception.h" />
+    <ClInclude Include="Isatronia\Exceptions\exceptions.h" />
+    <ClInclude Include="Isatronia\Exceptions\ImageException.h" />
+    <ClInclude Include="Isatronia\Exceptions\RuntimeException.h" />
+    <ClInclude Include="Isatronia\Framework\Coroutine.h" />
+    <ClInclude Include="Isatronia\Framework\Job.h" />
+    <ClInclude Include="Isatronia\Framework\Macro.h" />
+    <ClInclude Include="Isatronia\Framework\Timer.h" />
+    <ClInclude Include="Isatronia\Framework\Utils.h" />
+    <ClInclude Include="Isatronia\I18n\I18n.h" />
+    <ClInclude Include="Isatronia\Platform\App.h" />
+    <ClInclude Include="Isatronia\Platform\DDApp.h" />
+    <ClInclude Include="Isatronia\Resource\Animation.h" />
+    <ClInclude Include="Isatronia\Resource\BitMap.h" />
+    <ClInclude Include="Isatronia\Resource\Image.h" />
+    <ClInclude Include="Isatronia\Resource\ImageInfo.h" />
+    <ClInclude Include="Isatronia\Resource\Resource.h" />
+    <ClInclude Include="Isatronia\Resource\ResourceFactory.h" />
+    <ClInclude Include="Isatronia\Resource\RGBInfo.h" />
+    <ClInclude Include="Isatronia\Sprite\Sprite.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Main.cpp" />
+    <ClCompile Include=".\Isatronia\*.h" />
+    <ClCompile Include="Demo\DemoGame.cpp" />
+    <ClCompile Include="Isatronia\Platform\IsaMemory.cpp" />
+    <ClCompile Include="Isatronia\Platform\IsaMemory.h" />
+    <ClCompile Include="Isatronia\Exceptions\Exception.cpp" />
+    <ClCompile Include="Isatronia\Exceptions\ImageException.cpp" />
+    <ClCompile Include="Isatronia\Exceptions\RuntimeException.cpp" />
+    <ClCompile Include="Isatronia\Framework\Job.cpp" />
+    <ClCompile Include="Isatronia\Framework\Timer.cpp" />
+    <ClCompile Include="Isatronia\Framework\Utils.cpp" />
+    <ClCompile Include="Isatronia\I18n\I18n.cpp" />
+    <ClCompile Include="Isatronia\Platform\App.cpp" />
+    <ClCompile Include="Isatronia\Platform\DDApp.cpp" />
+    <!--<ClCompile Include="Isatronia\Platform\MemoryManager.h" />-->
+    <ClCompile Include="Isatronia\Resource\Animation.cpp" />
+    <ClCompile Include="Isatronia\Resource\Bitmap.cpp" />
+    <ClCompile Include="Isatronia\Resource\Image.cpp" />
+    <ClCompile Include="Isatronia\Resource\ImageInfo.cpp" />
+    <ClCompile Include="Isatronia\Resource\Resource.cpp" />
+    <ClCompile Include="Isatronia\Resource\RGBInfo.cpp" />
+    <ClCompile Include="Isatronia\Sprite\Sprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Isatronia.licenseheader" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
